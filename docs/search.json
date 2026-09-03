@@ -1,0 +1,114 @@
+[
+  {
+    "objectID": "teaching.html",
+    "href": "teaching.html",
+    "title": "Teaching",
+    "section": "",
+    "text": "CRIM 1307 — Introduction to Crime and Criminology Summer 2026"
+  },
+  {
+    "objectID": "teaching.html#instructor-of-record",
+    "href": "teaching.html#instructor-of-record",
+    "title": "Teaching",
+    "section": "",
+    "text": "CRIM 1307 — Introduction to Crime and Criminology Summer 2026"
+  },
+  {
+    "objectID": "teaching.html#teaching-assistant",
+    "href": "teaching.html#teaching-assistant",
+    "title": "Teaching",
+    "section": "Teaching Assistant",
+    "text": "Teaching Assistant\nCurrent (Fall 2026)\n\nCRIM 3309.001 — Media and Crime\nCRIM 3319.0W1 — Comparative Justice Systems\nCRIM 3325.0W1 — Victimology\n\nPrevious\n\nCRIM 1307 — Introduction to Crime and Criminology\nCRIM 3312 — Drugs and Crime\nCRIM 3319 — Comparative Justice Systems"
+  },
+  {
+    "objectID": "teaching.html#guest-lectures",
+    "href": "teaching.html#guest-lectures",
+    "title": "Teaching",
+    "section": "Guest Lectures",
+    "text": "Guest Lectures\n\n“Comparative Perspectives: Crime and Justice in Brazil and the United States,” CRIM 3319 — Comparative Justice Systems"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Evandro M. S. Gomes",
+    "section": "",
+    "text": "I am a PhD student in Criminology & Criminal Justice at the University of Texas at Dallas. My research focuses on white-collar crime, crime prevention, human rights, and law enforcement."
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Evandro M. S. Gomes",
+    "section": "Education",
+    "text": "Education\n\nPh.D. in Criminology & Criminal Justice, University of Texas at Dallas (in progress)\nM.S. in Criminology, University of Texas at Dallas\nBachelor of Law (LL.B.), Universidade Federal do Paraná (UFPR), Brazil"
+  },
+  {
+    "objectID": "index.html#research-interests",
+    "href": "index.html#research-interests",
+    "title": "Evandro M. S. Gomes",
+    "section": "Research Interests",
+    "text": "Research Interests\n\nWhite-collar crime\nCrime prevention\nHuman rights\nLaw enforcement"
+  },
+  {
+    "objectID": "cv.html",
+    "href": "cv.html",
+    "title": "CV",
+    "section": "",
+    "text": "Ph.D., Criminology & Criminal Justice — The University of Texas at Dallas (in progress)\nM.S., Criminology — The University of Texas at Dallas, 2025\nBachelor of Law (LL.B.) — Universidade Federal do Paraná (UFPR), Brazil"
+  },
+  {
+    "objectID": "cv.html#education",
+    "href": "cv.html#education",
+    "title": "CV",
+    "section": "",
+    "text": "Ph.D., Criminology & Criminal Justice — The University of Texas at Dallas (in progress)\nM.S., Criminology — The University of Texas at Dallas, 2025\nBachelor of Law (LL.B.) — Universidade Federal do Paraná (UFPR), Brazil"
+  },
+  {
+    "objectID": "cv.html#teaching-experience",
+    "href": "cv.html#teaching-experience",
+    "title": "CV",
+    "section": "Teaching Experience",
+    "text": "Teaching Experience\nInstructor of Record\n\nCRIM 1307 — Introduction to Crime and Criminology (Summer 2026)\n\nTeaching Assistant\n\nCRIM 3309 — Media and Crime (Fall 2026)\nCRIM 3319 — Comparative Justice Systems (Fall 2026, and previously)\nCRIM 3325 — Victimology (Fall 2026)\nCRIM 1307 — Introduction to Crime and Criminology\nCRIM 3312 — Drugs and Crime\n\nGuest Lectures\n\n“Comparative Perspectives: Crime and Justice in Brazil and the United States,” CRIM 3319 — Comparative Justice Systems"
+  },
+  {
+    "objectID": "cv.html#research",
+    "href": "cv.html#research",
+    "title": "CV",
+    "section": "Research",
+    "text": "Research\n\nMaster’s Thesis: “Beyond the Bars: A Study of Recidivism Among Texas Inmates and the Influence of Sentence Length” (2025), supervised by Tony Love, PhD"
+  },
+  {
+    "objectID": "cv.html#research-interests",
+    "href": "cv.html#research-interests",
+    "title": "CV",
+    "section": "Research Interests",
+    "text": "Research Interests\n\nWhite-collar crime\nCrime prevention\nHuman rights\nLaw enforcement"
+  },
+  {
+    "objectID": "cv.html#contact",
+    "href": "cv.html#contact",
+    "title": "CV",
+    "section": "Contact",
+    "text": "Contact\nEmail: evandromsg@hotmail.com · GitHub: evandromsg"
+  },
+  {
+    "objectID": "research.html",
+    "href": "research.html",
+    "title": "Research",
+    "section": "",
+    "text": "Beyond the Bars: A Study of Recidivism Among Texas Inmates and the Influence of Sentence Length Master’s Thesis in Criminology, The University of Texas at Dallas, 2025 — Supervising Professor: Tony Love, PhD\n\nThis thesis examines the relationship between prison sentence length and the likelihood of rearrest or reincarceration among first-time inmates released from Texas state prisons. Using logistic regression, it finds that moderately long sentences (2–10 years) significantly increase recidivism, while very long sentences (25+ years) show no significant effect relative to shorter sentences — challenging deterrence theory and the presumed benefits of incapacitation.\n\nData-generating process. The data come from the Windham School District Biennial Evaluation project, an administrative dataset tracking first-time inmates released from Texas state prisons between September 2017 and May 2019 (N = 45,744). Records were compiled to evaluate the relationship between sentence length and reincarceration, with sentence length grouped into four bands and recidivism defined as rearrest or reincarceration within a set follow-up window."
+  },
+  {
+    "objectID": "research.html#thesis",
+    "href": "research.html#thesis",
+    "title": "Research",
+    "section": "",
+    "text": "Beyond the Bars: A Study of Recidivism Among Texas Inmates and the Influence of Sentence Length Master’s Thesis in Criminology, The University of Texas at Dallas, 2025 — Supervising Professor: Tony Love, PhD\n\nThis thesis examines the relationship between prison sentence length and the likelihood of rearrest or reincarceration among first-time inmates released from Texas state prisons. Using logistic regression, it finds that moderately long sentences (2–10 years) significantly increase recidivism, while very long sentences (25+ years) show no significant effect relative to shorter sentences — challenging deterrence theory and the presumed benefits of incapacitation.\n\nData-generating process. The data come from the Windham School District Biennial Evaluation project, an administrative dataset tracking first-time inmates released from Texas state prisons between September 2017 and May 2019 (N = 45,744). Records were compiled to evaluate the relationship between sentence length and reincarceration, with sentence length grouped into four bands and recidivism defined as rearrest or reincarceration within a set follow-up window."
+  },
+  {
+    "objectID": "research.html#publications",
+    "href": "research.html#publications",
+    "title": "Research",
+    "section": "Publications",
+    "text": "Publications\nComing soon."
+  }
+]

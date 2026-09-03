@@ -1,0 +1,31 @@
+---
+title: "Evandro M. S. Gomes"
+image: profile.png
+about:
+  template: trestles
+  image-shape: round
+  image-width: 14em
+  links:
+    - icon: envelope
+      text: Email
+      href: mailto:evandromsg@hotmail.com
+    - icon: github
+      text: GitHub
+      href: https://github.com/evandromsg
+---
+
+
+I am a PhD student in Criminology & Criminal Justice at the University of Texas at Dallas. My research focuses on white-collar crime, crime prevention, human rights, and law enforcement.
+
+## Education
+
+- Ph.D. in Criminology & Criminal Justice, University of Texas at Dallas (in progress)
+- M.S. in Criminology, University of Texas at Dallas
+- Bachelor of Law (LL.B.), Universidade Federal do Paraná (UFPR), Brazil
+
+## Research Interests
+
+- White-collar crime
+- Crime prevention
+- Human rights
+- Law enforcement

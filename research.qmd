@@ -1,0 +1,15 @@
+---
+title: "Research"
+---
+
+## Thesis
+
+**Beyond the Bars: A Study of Recidivism Among Texas Inmates and the Influence of Sentence Length** *Master's Thesis in Criminology, The University of Texas at Dallas, 2025 — Supervising Professor: Tony Love, PhD*
+
+> This thesis examines the relationship between prison sentence length and the likelihood of rearrest or reincarceration among first-time inmates released from Texas state prisons. Using logistic regression, it finds that moderately long sentences (2–10 years) significantly increase recidivism, while very long sentences (25+ years) show no significant effect relative to shorter sentences — challenging deterrence theory and the presumed benefits of incapacitation.
+
+**Data-generating process.** The data come from the Windham School District Biennial Evaluation project, an administrative dataset tracking first-time inmates released from Texas state prisons between September 2017 and May 2019 (N = 45,744). Records were compiled to evaluate the relationship between sentence length and reincarceration, with sentence length grouped into four bands and recidivism defined as rearrest or reincarceration within a set follow-up window.
+
+## Publications
+
+*Coming soon.*

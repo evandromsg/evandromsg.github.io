@@ -1,0 +1,28 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Evandro M. S. Gomes"
+  description: "PhD Student in Criminology & Criminal Justice, University of Texas at Dallas"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: research.qmd
+        text: Research
+      - href: teaching.qmd
+        text: Teaching
+      - href: cv.qmd
+        text: CV
+    right:
+      - icon: github
+        href: https://github.com/evandromsg
+      - icon: envelope
+        href: mailto:evandromsg@hotmail.com
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
