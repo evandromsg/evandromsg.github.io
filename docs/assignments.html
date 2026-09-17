@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Research – Evandro M. S. Gomes</title>
+<title>Assignments – Evandro M. S. Gomes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -97,7 +97,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./research.html" aria-current="page"> 
+    <a class="nav-link" href="./research.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
@@ -105,7 +105,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./assignments.html"> 
+    <a class="nav-link active" href="./assignments.html" aria-current="page"> 
 <span class="menu-text">Assignments</span></a>
   </li>  
   <li class="nav-item">
@@ -140,8 +140,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#thesis" id="toc-thesis" class="nav-link active" data-scroll-target="#thesis">Thesis</a></li>
-  <li><a href="#publications" id="toc-publications" class="nav-link" data-scroll-target="#publications">Publications</a></li>
+  <li><a href="#epps-6356-data-visualization" id="toc-epps-6356-data-visualization" class="nav-link active" data-scroll-target="#epps-6356-data-visualization">EPPS 6356 — Data Visualization</a>
+  <ul class="collapse">
+  <li><a href="#assignment-1" id="toc-assignment-1" class="nav-link" data-scroll-target="#assignment-1">Assignment 1</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -150,7 +152,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Research</h1>
+<h1 class="title">Assignments</h1>
 </div>
 
 
@@ -167,19 +169,40 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="thesis" class="level2">
-<h2 class="anchored" data-anchor-id="thesis">Thesis</h2>
-<p><strong>Beyond the Bars: A Study of Recidivism Among Texas Inmates and the Influence of Sentence Length</strong> <em>Master’s Thesis in Criminology, The University of Texas at Dallas, 2025 — Supervising Professor: Tony Love, PhD</em></p>
-<blockquote class="blockquote">
-<p>This thesis examines the relationship between prison sentence length and the likelihood of rearrest or reincarceration among first-time inmates released from Texas state prisons. Using logistic regression, it finds that moderately long sentences (2–10 years) significantly increase recidivism, while very long sentences (25+ years) show no significant effect relative to shorter sentences — challenging deterrence theory and the presumed benefits of incapacitation.</p>
-</blockquote>
-<p><strong>Data-generating process.</strong> The data come from the Windham School District Biennial Evaluation project, an administrative dataset tracking first-time inmates released from Texas state prisons between September 2017 and May 2019 (N = 45,744). Records were compiled to evaluate the relationship between sentence length and reincarceration, with sentence length grouped into four bands and recidivism defined as rearrest or reincarceration within a set follow-up window.</p>
+<section id="epps-6356-data-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="epps-6356-data-visualization">EPPS 6356 — Data Visualization</h2>
+<section id="assignment-1" class="level3">
+<h3 class="anchored" data-anchor-id="assignment-1">Assignment 1</h3>
+<section id="anscombes-quartet" class="level4">
+<h4 class="anchored" data-anchor-id="anscombes-quartet">1. Anscombe’s Quartet</h4>
+<p>The main idea is the lack of attention that statistical textbooks and software pay to graphics.</p>
+<p>Three red flags:</p>
+<ul>
+<li>It is wrong to assume that numeric calculations are correct and graphs are the “weird” part.</li>
+<li>There is not one single way to analyze the data.</li>
+<li>There is no virtue in just taking into account the calculus.</li>
+</ul>
+<p>Given that:</p>
+<ul>
+<li>Before every calculation, provide the scatterplot.</li>
+<li>Plot the residuals against the adjusted (fitted) values after the regression.</li>
+<li>Outlier — always investigate. Is it an error? Report it.</li>
+<li>If the curves suggest non-linearity, consider transformations.</li>
+</ul>
 </section>
-<section id="publications" class="level2">
-<h2 class="anchored" data-anchor-id="publications">Publications</h2>
-<p><em>Coming soon.</em></p>
+<section id="fall-color" class="level4">
+<h4 class="anchored" data-anchor-id="fall-color">2. Fall Color</h4>
+<p>The default color was replaced with a custom sky-blue tone (<code>skyblue</code>).</p>
+<p><img src="fall_color.png" class="img-fluid"></p>
+</section>
+<section id="critique-of-a-published-chart" class="level4">
+<h4 class="anchored" data-anchor-id="critique-of-a-published-chart">3. Critique of a Published Chart</h4>
+<p>In April 2014, Reuters published a graphic on the number of gun deaths in Florida, with the “Stand Your Ground” law (2005) as the turning point. However, the Y-axis was inverted, which conveyed a decrease in the numbers when the opposite was true. The numbers were not wrong — the form was. The solution is simple: keep the Y-axis in its conventional position.</p>
+<p><em>Source: <a href="https://psmag.com/news/mislead-charts-stand-ground-laws-gun-deaths-79726/">“How to Mislead With Charts” — Pacific Standard</a></em></p>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->

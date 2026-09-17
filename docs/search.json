@@ -49,6 +49,20 @@
     "text": "Research Interests\n\nWhite-collar crime\nCrime prevention\nHuman rights\nLaw enforcement"
   },
   {
+    "objectID": "assignments.html",
+    "href": "assignments.html",
+    "title": "Assignments",
+    "section": "",
+    "text": "The main idea is the lack of attention that statistical textbooks and software pay to graphics.\nThree red flags:\n\nIt is wrong to assume that numeric calculations are correct and graphs are the “weird” part.\nThere is not one single way to analyze the data.\nThere is no virtue in just taking into account the calculus.\n\nGiven that:\n\nBefore every calculation, provide the scatterplot.\nPlot the residuals against the adjusted (fitted) values after the regression.\nOutlier — always investigate. Is it an error? Report it.\nIf the curves suggest non-linearity, consider transformations.\n\n\n\n\nThe default color was replaced with a custom sky-blue tone (skyblue).\n\n\n\n\nIn April 2014, Reuters published a graphic on the number of gun deaths in Florida, with the “Stand Your Ground” law (2005) as the turning point. However, the Y-axis was inverted, which conveyed a decrease in the numbers when the opposite was true. The numbers were not wrong — the form was. The solution is simple: keep the Y-axis in its conventional position.\nSource: “How to Mislead With Charts” — Pacific Standard"
+  },
+  {
+    "objectID": "assignments.html#epps-6356-data-visualization",
+    "href": "assignments.html#epps-6356-data-visualization",
+    "title": "Assignments",
+    "section": "",
+    "text": "The main idea is the lack of attention that statistical textbooks and software pay to graphics.\nThree red flags:\n\nIt is wrong to assume that numeric calculations are correct and graphs are the “weird” part.\nThere is not one single way to analyze the data.\nThere is no virtue in just taking into account the calculus.\n\nGiven that:\n\nBefore every calculation, provide the scatterplot.\nPlot the residuals against the adjusted (fitted) values after the regression.\nOutlier — always investigate. Is it an error? Report it.\nIf the curves suggest non-linearity, consider transformations.\n\n\n\n\nThe default color was replaced with a custom sky-blue tone (skyblue).\n\n\n\n\nIn April 2014, Reuters published a graphic on the number of gun deaths in Florida, with the “Stand Your Ground” law (2005) as the turning point. However, the Y-axis was inverted, which conveyed a decrease in the numbers when the opposite was true. The numbers were not wrong — the form was. The solution is simple: keep the Y-axis in its conventional position.\nSource: “How to Mislead With Charts” — Pacific Standard"
+  },
+  {
     "objectID": "cv.html",
     "href": "cv.html",
     "title": "CV",
