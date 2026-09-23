@@ -36,6 +36,7 @@ The default color was replaced with a custom sky-blue tone (`skyblue`).
 In April 2014, Reuters published a graphic on the number of gun deaths in Florida, with the "Stand Your Ground" law (2005) as the turning point. However, the Y-axis was inverted, which conveyed a decrease in the numbers when the opposite was true. The numbers were not wrong — the form was. The solution is simple: keep the Y-axis in its conventional position.
 
 *Source: ["How to Mislead With Charts" — Pacific Standard](https://psmag.com/news/mislead-charts-stand-ground-laws-gun-deaths-79726/)*
+
 ### Assignment 2
 
 [Base R Graphics: Murrell chapter 1 and the Happy Planet Index](assignment02.qmd)
