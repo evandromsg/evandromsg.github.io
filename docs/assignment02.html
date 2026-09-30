@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Evandro M. S. Gomes">
-<meta name="dcterms.date" content="2026-09-23">
+<meta name="dcterms.date" content="2026-09-30">
 
 <title>Assignment 2: Base R Graphics – Evandro M. S. Gomes</title>
 <style>
@@ -195,7 +195,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Assignment 2: Base R Graphics</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+<h1 class="title">Assignment 2: Base R Graphics</h1>
 <p class="subtitle lead">EPPS 6356 Data Visualization</p>
 </div>
 
@@ -213,7 +213,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 23, 2026</p>
+      <p class="date">September 30, 2026</p>
     </div>
   </div>
   
@@ -666,8 +666,6 @@ Figure&nbsp;2
 <p>Murrell, Paul. 2019. <em>R Graphics</em>. 3rd ed.&nbsp;Chapman &amp; Hall/CRC.</p>
 
 
-<!-- -->
-
 </section>
 
 </main> <!-- /main -->
@@ -741,57 +739,6 @@ Figure&nbsp;2
         container: window.document.getElementById('quarto-embedded-source-code-modal')
       });
       clipboardModal.on('success', onCopySuccess);
-    }
-    const viewSource = window.document.getElementById('quarto-view-source') ||
-                       window.document.getElementById('quarto-code-tools-source');
-    if (viewSource) {
-      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-      viewSource.addEventListener("click", function(e) {
-        if (sourceUrl) {
-          // rstudio viewer pane
-          if (/\bcapabilities=\b/.test(window.location)) {
-            window.open(sourceUrl);
-          } else {
-            window.location.href = sourceUrl;
-          }
-        } else {
-          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-          modal.show();
-        }
-        return false;
-      });
-    }
-    function toggleCodeHandler(show) {
-      return function(e) {
-        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-        for (let i=0; i<detailsSrc.length; i++) {
-          const details = detailsSrc[i].parentElement;
-          if (show) {
-            details.open = true;
-          } else {
-            details.removeAttribute("open");
-          }
-        }
-        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-        const fromCls = show ? "hidden" : "unhidden";
-        const toCls = show ? "unhidden" : "hidden";
-        for (let i=0; i<cellCodeDivs.length; i++) {
-          const codeDiv = cellCodeDivs[i];
-          if (codeDiv.classList.contains(fromCls)) {
-            codeDiv.classList.remove(fromCls);
-            codeDiv.classList.add(toCls);
-          } 
-        }
-        return false;
-      }
-    }
-    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-    if (hideAllCode) {
-      hideAllCode.addEventListener("click", toggleCodeHandler(false));
-    }
-    const showAllCode = window.document.getElementById("quarto-show-all-code");
-    if (showAllCode) {
-      showAllCode.addEventListener("click", toggleCodeHandler(true));
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
@@ -1121,344 +1068,7 @@ Figure&nbsp;2
       }
     }
   });
-  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Assignment 2: Base R Graphics"</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "EPPS 6356 Data Visualization"</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Evandro M. S. Gomes"</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> today</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: show</span></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## 1. Murrell, *R Graphics*, chapter 1</span></span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>I ran the author's code for Figures 1.1 and 1.2 (<span class="ot">&lt;https://www.stat.auckland.ac.nz/~paul/RG3e/chapter1.html&gt;</span>) line by line. The <span class="in">`DEVICE:`</span> comments note what changed on the device after each call. The code's comments pose no questions.</span>
-<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-murrell</span></span>
-<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 9</span></span>
-<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-width: 7</span></span>
-<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a><span class="do">## Murrell, R Graphics (3rd ed.), chapter 1 - Figures 1.1 and 1.2</span></span>
-<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a><span class="do">## Annotated walk-through: run ONE line at a time (Ctrl+Enter) and watch the</span></span>
-<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a><span class="do">## Plots pane. "DEVICE:" notes say what changes after each call.</span></span>
-<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a><span class="do">## ---- Figure 1.1: a simple scatterplot --------------------------------------</span></span>
-<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pressure)</span>
-<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a><span class="co"># DEVICE: new page; axes, box, labels and 19 points (temperature vs pressure).</span></span>
-<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">150</span>, <span class="dv">600</span>, <span class="st">"Pressure (mm Hg)</span><span class="sc">\n</span><span class="st">versus</span><span class="sc">\n</span><span class="st">Temperature (Celsius)"</span>)</span>
-<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a><span class="co"># DEVICE: nothing is erased; the text is added at DATA coordinates (x=150, y=600).</span></span>
-<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a><span class="co"># "\n" breaks the label into three lines.</span></span>
-<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a><span class="do">## ---- Figure 1.2: six standard plots on one page ---------------------------</span></span>
-<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>))</span>
-<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a><span class="co"># DEVICE: nothing visible yet - the page is now split into a 3 x 2 grid,</span></span>
-<span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a><span class="co"># and each new high-level plot fills the next cell (row by row).</span></span>
-<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-42"><a href="#cb18-42" aria-hidden="true" tabindex="-1"></a><span class="do">## (1) Scatterplot built piece by piece ------------------------------------</span></span>
-<span id="cb18-43"><a href="#cb18-43" aria-hidden="true" tabindex="-1"></a>x  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">12</span>, <span class="dv">16</span>)</span>
-<span id="cb18-44"><a href="#cb18-44" aria-hidden="true" tabindex="-1"></a>y1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">1.3</span>, <span class="fl">1.9</span>, <span class="fl">3.4</span>, <span class="fl">3.9</span>, <span class="fl">4.8</span>)</span>
-<span id="cb18-45"><a href="#cb18-45" aria-hidden="true" tabindex="-1"></a>y2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, .<span class="dv">8</span>, .<span class="dv">5</span>, .<span class="dv">45</span>, .<span class="dv">4</span>, .<span class="dv">3</span>)</span>
-<span id="cb18-46"><a href="#cb18-46" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">las =</span> <span class="dv">1</span>, <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">4</span>), <span class="at">cex =</span> .<span class="dv">7</span>)</span>
-<span id="cb18-47"><a href="#cb18-47" aria-hidden="true" tabindex="-1"></a><span class="co"># DEVICE: nothing drawn; horizontal tick labels, wider right margin (for axis 4),</span></span>
-<span id="cb18-48"><a href="#cb18-48" aria-hidden="true" tabindex="-1"></a><span class="co"># smaller text.</span></span>
-<span id="cb18-49"><a href="#cb18-49" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.new</span>()</span>
-<span id="cb18-50"><a href="#cb18-50" aria-hidden="true" tabindex="-1"></a><span class="co"># DEVICE: moves to cell 1 - an EMPTY plot region (no axes, no box).</span></span>
-<span id="cb18-51"><a href="#cb18-51" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.window</span>(<span class="fu">range</span>(x), <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">6</span>))</span>
-<span id="cb18-52"><a href="#cb18-52" aria-hidden="true" tabindex="-1"></a><span class="co"># DEVICE: still blank; only sets the coordinate system (x range, y 0-6).</span></span>
-<span id="cb18-53"><a href="#cb18-53" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, y1)</span>
-<span id="cb18-54"><a href="#cb18-54" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, y2)</span>
-<span id="cb18-55"><a href="#cb18-55" aria-hidden="true" tabindex="-1"></a><span class="co"># DEVICE: two lines appear, no axes yet.</span></span>
-<span id="cb18-56"><a href="#cb18-56" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x, y1, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">cex =</span> <span class="dv">2</span>)</span>
-<span id="cb18-57"><a href="#cb18-57" aria-hidden="true" tabindex="-1"></a><span class="co"># DEVICE: large filled circles on line 1.</span></span>
-<span id="cb18-58"><a href="#cb18-58" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x, y2, <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">bg =</span> <span class="st">"white"</span>, <span class="at">cex =</span> <span class="dv">2</span>)</span>
-<span id="cb18-59"><a href="#cb18-59" aria-hidden="true" tabindex="-1"></a><span class="co"># DEVICE: large open circles (white fill hides the line under them) on line 2.</span></span>
-<span id="cb18-60"><a href="#cb18-60" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">col =</span> <span class="st">"gray50"</span>, <span class="at">fg =</span> <span class="st">"gray50"</span>, <span class="at">col.axis =</span> <span class="st">"gray50"</span>)</span>
-<span id="cb18-61"><a href="#cb18-61" aria-hidden="true" tabindex="-1"></a><span class="co"># DEVICE: nothing yet; what is drawn next will be grey.</span></span>
-<span id="cb18-62"><a href="#cb18-62" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">16</span>, <span class="dv">4</span>))</span>
-<span id="cb18-63"><a href="#cb18-63" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">2</span>, <span class="at">at =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">6</span>, <span class="dv">2</span>))</span>
-<span id="cb18-64"><a href="#cb18-64" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">4</span>, <span class="at">at =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">6</span>, <span class="dv">2</span>))</span>
-<span id="cb18-65"><a href="#cb18-65" aria-hidden="true" tabindex="-1"></a><span class="co"># DEVICE: grey axes on bottom (1), left (2) and right (4) sides.</span></span>
-<span id="cb18-66"><a href="#cb18-66" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>(<span class="at">bty =</span> <span class="st">"u"</span>)</span>
-<span id="cb18-67"><a href="#cb18-67" aria-hidden="true" tabindex="-1"></a><span class="co"># DEVICE: a U-shaped frame (left, bottom, right - no top line).</span></span>
-<span id="cb18-68"><a href="#cb18-68" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="st">"Travel Time (s)"</span>, <span class="at">side =</span> <span class="dv">1</span>, <span class="at">line =</span> <span class="dv">2</span>, <span class="at">cex =</span> <span class="fl">0.8</span>)</span>
-<span id="cb18-69"><a href="#cb18-69" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="st">"Responses per Travel"</span>, <span class="at">side =</span> <span class="dv">2</span>, <span class="at">line =</span> <span class="dv">2</span>, <span class="at">las =</span> <span class="dv">0</span>, <span class="at">cex =</span> <span class="fl">0.8</span>)</span>
-<span id="cb18-70"><a href="#cb18-70" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="st">"Responses per Second"</span>, <span class="at">side =</span> <span class="dv">4</span>, <span class="at">line =</span> <span class="dv">2</span>, <span class="at">las =</span> <span class="dv">0</span>, <span class="at">cex =</span> <span class="fl">0.8</span>)</span>
-<span id="cb18-71"><a href="#cb18-71" aria-hidden="true" tabindex="-1"></a><span class="co"># DEVICE: axis titles written in the MARGINS (line = distance from the plot).</span></span>
-<span id="cb18-72"><a href="#cb18-72" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="st">"Bird 131"</span>)</span>
-<span id="cb18-73"><a href="#cb18-73" aria-hidden="true" tabindex="-1"></a><span class="co"># DEVICE: label inside the plot, at data coordinates (4, 5).</span></span>
-<span id="cb18-74"><a href="#cb18-74" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="fl">5.1</span>, <span class="fl">4.1</span>, <span class="fl">4.1</span>, <span class="fl">2.1</span>), <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">fg =</span> <span class="st">"black"</span>, <span class="at">col.axis =</span> <span class="st">"black"</span>)</span>
-<span id="cb18-75"><a href="#cb18-75" aria-hidden="true" tabindex="-1"></a><span class="co"># DEVICE: nothing; restores default margins and colours.</span></span>
-<span id="cb18-76"><a href="#cb18-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-77"><a href="#cb18-77" aria-hidden="true" tabindex="-1"></a><span class="do">## (2) Histogram with density curve --------------------------------------</span></span>
-<span id="cb18-78"><a href="#cb18-78" aria-hidden="true" tabindex="-1"></a>Y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">50</span>)</span>
-<span id="cb18-79"><a href="#cb18-79" aria-hidden="true" tabindex="-1"></a>Y[Y <span class="sc">&lt;</span> <span class="sc">-</span><span class="fl">3.5</span> <span class="sc">|</span> Y <span class="sc">&gt;</span> <span class="fl">3.5</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb18-80"><a href="#cb18-80" aria-hidden="true" tabindex="-1"></a>x  <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="fl">3.5</span>, <span class="fl">3.5</span>, .<span class="dv">1</span>)</span>
-<span id="cb18-81"><a href="#cb18-81" aria-hidden="true" tabindex="-1"></a>dn <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(x)</span>
-<span id="cb18-82"><a href="#cb18-82" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="fl">4.5</span>, <span class="fl">4.1</span>, <span class="fl">3.1</span>, <span class="dv">0</span>))</span>
-<span id="cb18-83"><a href="#cb18-83" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(Y, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="fl">3.5</span>, <span class="fl">3.5</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>), <span class="at">col =</span> <span class="st">"gray80"</span>, <span class="at">freq =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb18-84"><a href="#cb18-84" aria-hidden="true" tabindex="-1"></a><span class="co"># DEVICE: cell 2 - histogram of 50 random normals; freq = FALSE puts DENSITY on y.</span></span>
-<span id="cb18-85"><a href="#cb18-85" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, <span class="fu">dnorm</span>(x), <span class="at">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb18-86"><a href="#cb18-86" aria-hidden="true" tabindex="-1"></a><span class="co"># DEVICE: the theoretical normal curve is laid over the bars.</span></span>
-<span id="cb18-87"><a href="#cb18-87" aria-hidden="true" tabindex="-1"></a><span class="co"># (Run it again: the bars change, because rnorm() draws new random numbers.)</span></span>
-<span id="cb18-88"><a href="#cb18-88" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="fl">5.1</span>, <span class="fl">4.1</span>, <span class="fl">4.1</span>, <span class="fl">2.1</span>))</span>
-<span id="cb18-89"><a href="#cb18-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-90"><a href="#cb18-90" aria-hidden="true" tabindex="-1"></a><span class="do">## (3) Stacked barplot ---------------------------------------------------</span></span>
-<span id="cb18-91"><a href="#cb18-91" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="fl">3.1</span>, <span class="dv">2</span>, <span class="fl">2.1</span>))</span>
-<span id="cb18-92"><a href="#cb18-92" aria-hidden="true" tabindex="-1"></a>midpts <span class="ot">&lt;-</span> <span class="fu">barplot</span>(VADeaths, <span class="at">col =</span> <span class="fu">gray</span>(<span class="fl">0.1</span> <span class="sc">+</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">9</span>, <span class="dv">2</span>)<span class="sc">/</span><span class="dv">11</span>),</span>
-<span id="cb18-93"><a href="#cb18-93" aria-hidden="true" tabindex="-1"></a>                  <span class="at">names =</span> <span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">4</span>))</span>
-<span id="cb18-94"><a href="#cb18-94" aria-hidden="true" tabindex="-1"></a><span class="co"># DEVICE: cell 3 - four stacked bars, five grey shades, no group labels.</span></span>
-<span id="cb18-95"><a href="#cb18-95" aria-hidden="true" tabindex="-1"></a><span class="co"># barplot() also RETURNS the x-position of each bar's centre (midpts).</span></span>
-<span id="cb18-96"><a href="#cb18-96" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="fu">sub</span>(<span class="st">" "</span>, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>, <span class="fu">colnames</span>(VADeaths)),</span>
-<span id="cb18-97"><a href="#cb18-97" aria-hidden="true" tabindex="-1"></a>      <span class="at">at =</span> midpts, <span class="at">side =</span> <span class="dv">1</span>, <span class="at">line =</span> <span class="fl">0.5</span>, <span class="at">cex =</span> <span class="fl">0.5</span>)</span>
-<span id="cb18-98"><a href="#cb18-98" aria-hidden="true" tabindex="-1"></a><span class="co"># DEVICE: group names written under each bar on two lines ("Rural\nMale").</span></span>
-<span id="cb18-99"><a href="#cb18-99" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fu">rep</span>(midpts, <span class="at">each =</span> <span class="dv">5</span>), <span class="fu">apply</span>(VADeaths, <span class="dv">2</span>, cumsum) <span class="sc">-</span> VADeaths<span class="sc">/</span><span class="dv">2</span>,</span>
-<span id="cb18-100"><a href="#cb18-100" aria-hidden="true" tabindex="-1"></a>     VADeaths, <span class="at">col =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"white"</span>, <span class="st">"black"</span>), <span class="at">times =</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">2</span>), <span class="at">cex =</span> <span class="fl">0.8</span>)</span>
-<span id="cb18-101"><a href="#cb18-101" aria-hidden="true" tabindex="-1"></a><span class="co"># DEVICE: each segment's value written in its middle; white text on the</span></span>
-<span id="cb18-102"><a href="#cb18-102" aria-hidden="true" tabindex="-1"></a><span class="co"># three dark segments, black on the two light ones.</span></span>
-<span id="cb18-103"><a href="#cb18-103" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="fl">5.1</span>, <span class="fl">4.1</span>, <span class="fl">4.1</span>, <span class="fl">2.1</span>))</span>
-<span id="cb18-104"><a href="#cb18-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-105"><a href="#cb18-105" aria-hidden="true" tabindex="-1"></a><span class="do">## (4) Side-by-side boxplots ---------------------------------------------</span></span>
-<span id="cb18-106"><a href="#cb18-106" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="fl">4.1</span>, <span class="dv">2</span>, <span class="dv">0</span>))</span>
-<span id="cb18-107"><a href="#cb18-107" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(len <span class="sc">~</span> dose, <span class="at">data =</span> ToothGrowth,</span>
-<span id="cb18-108"><a href="#cb18-108" aria-hidden="true" tabindex="-1"></a>        <span class="at">boxwex =</span> <span class="fl">0.25</span>, <span class="at">at =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span> <span class="sc">-</span> <span class="fl">0.2</span>,</span>
-<span id="cb18-109"><a href="#cb18-109" aria-hidden="true" tabindex="-1"></a>        <span class="at">subset =</span> supp <span class="sc">==</span> <span class="st">"VC"</span>, <span class="at">col =</span> <span class="st">"white"</span>,</span>
-<span id="cb18-110"><a href="#cb18-110" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">""</span>, <span class="at">ylab =</span> <span class="st">"tooth length"</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">35</span>))</span>
-<span id="cb18-111"><a href="#cb18-111" aria-hidden="true" tabindex="-1"></a><span class="co"># DEVICE: cell 4 - three narrow white boxes (Vitamin C), shifted LEFT by 0.2.</span></span>
-<span id="cb18-112"><a href="#cb18-112" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="st">"Vitamin C dose (mg)"</span>, <span class="at">side =</span> <span class="dv">1</span>, <span class="at">line =</span> <span class="fl">2.5</span>, <span class="at">cex =</span> <span class="fl">0.8</span>)</span>
-<span id="cb18-113"><a href="#cb18-113" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(len <span class="sc">~</span> dose, <span class="at">data =</span> ToothGrowth, <span class="at">add =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb18-114"><a href="#cb18-114" aria-hidden="true" tabindex="-1"></a>        <span class="at">boxwex =</span> <span class="fl">0.25</span>, <span class="at">at =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span> <span class="sc">+</span> <span class="fl">0.2</span>,</span>
-<span id="cb18-115"><a href="#cb18-115" aria-hidden="true" tabindex="-1"></a>        <span class="at">subset =</span> supp <span class="sc">==</span> <span class="st">"OJ"</span>)</span>
-<span id="cb18-116"><a href="#cb18-116" aria-hidden="true" tabindex="-1"></a><span class="co"># DEVICE: add = TRUE draws on the SAME plot: grey boxes (orange juice)</span></span>
-<span id="cb18-117"><a href="#cb18-117" aria-hidden="true" tabindex="-1"></a><span class="co"># shifted RIGHT by 0.2, so each dose shows a pair.</span></span>
-<span id="cb18-118"><a href="#cb18-118" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="fl">1.5</span>, <span class="dv">9</span>, <span class="fu">c</span>(<span class="st">"Ascorbic acid"</span>, <span class="st">"Orange juice"</span>),</span>
-<span id="cb18-119"><a href="#cb18-119" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="fu">c</span>(<span class="st">"white"</span>, <span class="st">"gray"</span>), <span class="at">bty =</span> <span class="st">"n"</span>)</span>
-<span id="cb18-120"><a href="#cb18-120" aria-hidden="true" tabindex="-1"></a><span class="co"># DEVICE: key at (1.5, 9), no border around it (bty = "n").</span></span>
-<span id="cb18-121"><a href="#cb18-121" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="fl">5.1</span>, <span class="fl">4.1</span>, <span class="fl">4.1</span>, <span class="fl">2.1</span>))</span>
-<span id="cb18-122"><a href="#cb18-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-123"><a href="#cb18-123" aria-hidden="true" tabindex="-1"></a><span class="do">## (5) Perspective (3-D) plot ------------------------------------------</span></span>
-<span id="cb18-124"><a href="#cb18-124" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="at">length =</span> <span class="dv">30</span>)</span>
-<span id="cb18-125"><a href="#cb18-125" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x</span>
-<span id="cb18-126"><a href="#cb18-126" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) { r <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(x<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> y<span class="sc">^</span><span class="dv">2</span>); <span class="dv">10</span> <span class="sc">*</span> <span class="fu">sin</span>(r)<span class="sc">/</span>r }</span>
-<span id="cb18-127"><a href="#cb18-127" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">outer</span>(x, y, f)</span>
-<span id="cb18-128"><a href="#cb18-128" aria-hidden="true" tabindex="-1"></a>z[<span class="fu">is.na</span>(z)] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb18-129"><a href="#cb18-129" aria-hidden="true" tabindex="-1"></a><span class="co"># (sin(0)/0 is NaN at the centre; it is replaced by the limit value.)</span></span>
-<span id="cb18-130"><a href="#cb18-130" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="at">lwd =</span> <span class="fl">0.5</span>)</span>
-<span id="cb18-131"><a href="#cb18-131" aria-hidden="true" tabindex="-1"></a><span class="fu">persp</span>(x, y, z, <span class="at">theta =</span> <span class="dv">30</span>, <span class="at">phi =</span> <span class="dv">30</span>, <span class="at">expand =</span> <span class="fl">0.5</span>)</span>
-<span id="cb18-132"><a href="#cb18-132" aria-hidden="true" tabindex="-1"></a><span class="co"># DEVICE: cell 5 - the "sombrero" surface; theta turns it left/right,</span></span>
-<span id="cb18-133"><a href="#cb18-133" aria-hidden="true" tabindex="-1"></a><span class="co"># phi tilts it up/down, expand squashes the height.</span></span>
-<span id="cb18-134"><a href="#cb18-134" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="fl">5.1</span>, <span class="fl">4.1</span>, <span class="fl">4.1</span>, <span class="fl">2.1</span>), <span class="at">lwd =</span> <span class="dv">1</span>)</span>
-<span id="cb18-135"><a href="#cb18-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-136"><a href="#cb18-136" aria-hidden="true" tabindex="-1"></a><span class="do">## (6) Pie chart ---------------------------------------------------------</span></span>
-<span id="cb18-137"><a href="#cb18-137" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="at">xpd =</span> <span class="cn">FALSE</span>, <span class="at">cex =</span> <span class="fl">0.5</span>)</span>
-<span id="cb18-138"><a href="#cb18-138" aria-hidden="true" tabindex="-1"></a>pie.sales <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.12</span>, <span class="fl">0.3</span>, <span class="fl">0.26</span>, <span class="fl">0.16</span>, <span class="fl">0.04</span>, <span class="fl">0.12</span>)</span>
-<span id="cb18-139"><a href="#cb18-139" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(pie.sales) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Blueberry"</span>, <span class="st">"Cherry"</span>, <span class="st">"Apple"</span>,</span>
-<span id="cb18-140"><a href="#cb18-140" aria-hidden="true" tabindex="-1"></a>                      <span class="st">"Boston Cream"</span>, <span class="st">"Other"</span>, <span class="st">"Vanilla"</span>)</span>
-<span id="cb18-141"><a href="#cb18-141" aria-hidden="true" tabindex="-1"></a><span class="co"># names() draws nothing: it only attaches labels to the vector,</span></span>
-<span id="cb18-142"><a href="#cb18-142" aria-hidden="true" tabindex="-1"></a><span class="co"># and pie() then uses those names as slice labels.</span></span>
-<span id="cb18-143"><a href="#cb18-143" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(pie.sales, <span class="at">col =</span> <span class="fu">gray</span>(<span class="fu">seq</span>(<span class="fl">0.3</span>, <span class="fl">1.0</span>, <span class="at">length =</span> <span class="dv">6</span>)))</span>
-<span id="cb18-144"><a href="#cb18-144" aria-hidden="true" tabindex="-1"></a><span class="co"># DEVICE: cell 6 - six grey slices, labelled from names(pie.sales).</span></span>
-<span id="cb18-145"><a href="#cb18-145" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="fl">5.1</span>, <span class="fl">4.1</span>, <span class="fl">4.1</span>, <span class="fl">2.1</span>), <span class="at">xpd =</span> <span class="cn">FALSE</span>, <span class="at">cex =</span> <span class="dv">1</span>, <span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span>
-<span id="cb18-146"><a href="#cb18-146" aria-hidden="true" tabindex="-1"></a><span class="co"># DEVICE: back to one plot per page for what follows.</span></span>
-<span id="cb18-147"><a href="#cb18-147" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-148"><a href="#cb18-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-149"><a href="#cb18-149" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2. Data: the Happy Planet Index</span></span>
-<span id="cb18-150"><a href="#cb18-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-151"><a href="#cb18-151" aria-hidden="true" tabindex="-1"></a>Source: Abdallah, S. &amp; Barberà Mas, E. (2026). *The Happy Planet Index 2026 Data File*. Hot or Cool Institute. <span class="ot">&lt;https://happyplanetindex.org&gt;</span>.</span>
-<span id="cb18-152"><a href="#cb18-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-153"><a href="#cb18-153" aria-hidden="true" tabindex="-1"></a>**Year: 2025.** I chose 2025 because it is the most recent year in the release. It covers 134 countries.</span>
-<span id="cb18-154"><a href="#cb18-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-155"><a href="#cb18-155" aria-hidden="true" tabindex="-1"></a><span class="in">`names()`</span> is used only to give the columns short names; it is not a graphics function.</span>
-<span id="cb18-156"><a href="#cb18-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-159"><a href="#cb18-159" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb18-160"><a href="#cb18-160" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: data</span></span>
-<span id="cb18-161"><a href="#cb18-161" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb18-162"><a href="#cb18-162" aria-hidden="true" tabindex="-1"></a><span class="do">## Data: HPI 2026 data file, sheet "1. All countries" (year selected: 2025).</span></span>
-<span id="cb18-163"><a href="#cb18-163" aria-hidden="true" tabindex="-1"></a><span class="do">## The first 8 rows are titles; the column names are in row 9.</span></span>
-<span id="cb18-164"><a href="#cb18-164" aria-hidden="true" tabindex="-1"></a>hpi <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"Data/HPI_public_dataset.xlsx"</span>,</span>
-<span id="cb18-165"><a href="#cb18-165" aria-hidden="true" tabindex="-1"></a>                  <span class="at">sheet =</span> <span class="st">"1. All countries"</span>, <span class="at">skip =</span> <span class="dv">8</span>)</span>
-<span id="cb18-166"><a href="#cb18-166" aria-hidden="true" tabindex="-1"></a>hpi <span class="ot">&lt;-</span> hpi[, <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>]</span>
-<span id="cb18-167"><a href="#cb18-167" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(hpi) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"rank"</span>, <span class="st">"country"</span>, <span class="st">"iso"</span>, <span class="st">"blank"</span>, <span class="st">"continent"</span>, <span class="st">"pop"</span>,</span>
-<span id="cb18-168"><a href="#cb18-168" aria-hidden="true" tabindex="-1"></a>                <span class="st">"lifeexp"</span>, <span class="st">"satisf"</span>, <span class="st">"footprint"</span>, <span class="st">"hpi"</span>, <span class="st">"threshold"</span>, <span class="st">"gdp"</span>)</span>
-<span id="cb18-169"><a href="#cb18-169" aria-hidden="true" tabindex="-1"></a>hpi <span class="ot">&lt;-</span> hpi[<span class="sc">!</span><span class="fu">is.na</span>(hpi<span class="sc">$</span>country) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(hpi<span class="sc">$</span>hpi), ]</span>
-<span id="cb18-170"><a href="#cb18-170" aria-hidden="true" tabindex="-1"></a>hpi<span class="sc">$</span>continent <span class="ot">&lt;-</span> <span class="fu">factor</span>(hpi<span class="sc">$</span>continent, <span class="at">levels =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>,</span>
-<span id="cb18-171"><a href="#cb18-171" aria-hidden="true" tabindex="-1"></a>                        <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Latin America"</span>, <span class="st">"N. America &amp; Oceania"</span>,</span>
-<span id="cb18-172"><a href="#cb18-172" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">"Western Europe"</span>, <span class="st">"Middle East &amp; N. Africa"</span>,</span>
-<span id="cb18-173"><a href="#cb18-173" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">"Sub-Saharan Africa"</span>, <span class="st">"South Asia"</span>,</span>
-<span id="cb18-174"><a href="#cb18-174" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">"E. Europe &amp; Central Asia"</span>, <span class="st">"East Asia"</span>))</span>
-<span id="cb18-175"><a href="#cb18-175" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(hpi)</span>
-<span id="cb18-176"><a href="#cb18-176" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-177"><a href="#cb18-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-178"><a href="#cb18-178" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3. The plotting functions</span></span>
-<span id="cb18-179"><a href="#cb18-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-180"><a href="#cb18-180" aria-hidden="true" tabindex="-1"></a><span class="fu">### a. Set up the canvas</span></span>
-<span id="cb18-181"><a href="#cb18-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-182"><a href="#cb18-182" aria-hidden="true" tabindex="-1"></a><span class="fu">#### `par()`</span></span>
-<span id="cb18-183"><a href="#cb18-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-184"><a href="#cb18-184" aria-hidden="true" tabindex="-1"></a><span class="in">`par()`</span> sets graphical parameters for the plots that follow; here <span class="in">`mfrow = c(1, 2)`</span> puts two plots side by side.</span>
-<span id="cb18-185"><a href="#cb18-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-188"><a href="#cb18-188" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb18-189"><a href="#cb18-189" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
-<span id="cb18-190"><a href="#cb18-190" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(hpi<span class="sc">$</span>satisf, hpi<span class="sc">$</span>hpi, <span class="at">xlab =</span> <span class="st">"Life satisfaction"</span>, <span class="at">ylab =</span> <span class="st">"HPI"</span>)</span>
-<span id="cb18-191"><a href="#cb18-191" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(hpi<span class="sc">$</span>footprint, hpi<span class="sc">$</span>hpi, <span class="at">xlab =</span> <span class="st">"Ecological footprint"</span>, <span class="at">ylab =</span> <span class="st">"HPI"</span>)</span>
-<span id="cb18-192"><a href="#cb18-192" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span>
-<span id="cb18-193"><a href="#cb18-193" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-194"><a href="#cb18-194" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-195"><a href="#cb18-195" aria-hidden="true" tabindex="-1"></a><span class="fu">#### `box()`</span></span>
-<span id="cb18-196"><a href="#cb18-196" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-197"><a href="#cb18-197" aria-hidden="true" tabindex="-1"></a><span class="in">`box()`</span> draws the frame around the plot region; <span class="in">`bty = "l"`</span> keeps only the left and bottom sides.</span>
-<span id="cb18-198"><a href="#cb18-198" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-201"><a href="#cb18-201" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb18-202"><a href="#cb18-202" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(hpi<span class="sc">$</span>lifeexp, hpi<span class="sc">$</span>hpi, <span class="at">axes =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb18-203"><a href="#cb18-203" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Life expectancy"</span>, <span class="at">ylab =</span> <span class="st">"HPI"</span>)</span>
-<span id="cb18-204"><a href="#cb18-204" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>)</span>
-<span id="cb18-205"><a href="#cb18-205" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">2</span>)</span>
-<span id="cb18-206"><a href="#cb18-206" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>(<span class="at">bty =</span> <span class="st">"l"</span>)</span>
-<span id="cb18-207"><a href="#cb18-207" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-208"><a href="#cb18-208" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-209"><a href="#cb18-209" aria-hidden="true" tabindex="-1"></a><span class="fu">#### `axis()`</span></span>
-<span id="cb18-210"><a href="#cb18-210" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-211"><a href="#cb18-211" aria-hidden="true" tabindex="-1"></a><span class="in">`axis()`</span> draws one axis and controls where its tick marks go and how they are labelled.</span>
-<span id="cb18-212"><a href="#cb18-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-215"><a href="#cb18-215" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb18-216"><a href="#cb18-216" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(hpi<span class="sc">$</span>gdp, hpi<span class="sc">$</span>hpi, <span class="at">log =</span> <span class="st">"x"</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb18-217"><a href="#cb18-217" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"GDP per capita (log scale)"</span>, <span class="at">ylab =</span> <span class="st">"HPI"</span>)</span>
-<span id="cb18-218"><a href="#cb18-218" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> <span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">10000</span>, <span class="dv">100000</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"$1k"</span>, <span class="st">"$10k"</span>, <span class="st">"$100k"</span>))</span>
-<span id="cb18-219"><a href="#cb18-219" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">2</span>)</span>
-<span id="cb18-220"><a href="#cb18-220" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>()</span>
-<span id="cb18-221"><a href="#cb18-221" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-222"><a href="#cb18-222" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-223"><a href="#cb18-223" aria-hidden="true" tabindex="-1"></a><span class="fu">### b. Draw whole plots</span></span>
-<span id="cb18-224"><a href="#cb18-224" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-225"><a href="#cb18-225" aria-hidden="true" tabindex="-1"></a><span class="fu">#### `hist()`</span></span>
-<span id="cb18-226"><a href="#cb18-226" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-227"><a href="#cb18-227" aria-hidden="true" tabindex="-1"></a><span class="in">`hist()`</span> divides a numeric variable into bins and draws how many observations fall in each.</span>
-<span id="cb18-228"><a href="#cb18-228" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-231"><a href="#cb18-231" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb18-232"><a href="#cb18-232" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(hpi<span class="sc">$</span>hpi, <span class="at">col =</span> <span class="st">"gray80"</span>, <span class="at">xlab =</span> <span class="st">"HPI"</span>, <span class="at">main =</span> <span class="st">"HPI scores, 2025"</span>)</span>
-<span id="cb18-233"><a href="#cb18-233" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-234"><a href="#cb18-234" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-235"><a href="#cb18-235" aria-hidden="true" tabindex="-1"></a><span class="fu">#### `boxplot()`</span></span>
-<span id="cb18-236"><a href="#cb18-236" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-237"><a href="#cb18-237" aria-hidden="true" tabindex="-1"></a><span class="in">`boxplot()`</span> shows the median, quartiles and outliers of a variable for each group.</span>
-<span id="cb18-238"><a href="#cb18-238" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-241"><a href="#cb18-241" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb18-242"><a href="#cb18-242" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">11</span>, <span class="dv">2</span>, <span class="dv">1</span>))</span>
-<span id="cb18-243"><a href="#cb18-243" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(hpi <span class="sc">~</span> continent, <span class="at">data =</span> hpi, <span class="at">horizontal =</span> <span class="cn">TRUE</span>, <span class="at">las =</span> <span class="dv">1</span>,</span>
-<span id="cb18-244"><a href="#cb18-244" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"HPI"</span>, <span class="at">ylab =</span> <span class="st">""</span>)</span>
-<span id="cb18-245"><a href="#cb18-245" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="fl">5.1</span>, <span class="fl">4.1</span>, <span class="fl">4.1</span>, <span class="fl">2.1</span>))</span>
-<span id="cb18-246"><a href="#cb18-246" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-247"><a href="#cb18-247" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-248"><a href="#cb18-248" aria-hidden="true" tabindex="-1"></a><span class="fu">#### `pie()`</span></span>
-<span id="cb18-249"><a href="#cb18-249" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-250"><a href="#cb18-250" aria-hidden="true" tabindex="-1"></a><span class="in">`pie()`</span> divides a circle into slices proportional to a set of values.</span>
-<span id="cb18-251"><a href="#cb18-251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-254"><a href="#cb18-254" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb18-255"><a href="#cb18-255" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(<span class="fu">table</span>(hpi<span class="sc">$</span>continent), <span class="at">main =</span> <span class="st">"Countries by continent"</span>)</span>
-<span id="cb18-256"><a href="#cb18-256" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-257"><a href="#cb18-257" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-258"><a href="#cb18-258" aria-hidden="true" tabindex="-1"></a><span class="fu">#### `persp()`</span></span>
-<span id="cb18-259"><a href="#cb18-259" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-260"><a href="#cb18-260" aria-hidden="true" tabindex="-1"></a><span class="in">`persp()`</span> draws a 3-D surface seen from an angle set by <span class="in">`theta`</span> and <span class="in">`phi`</span>; here the density of countries by life expectancy and footprint.</span>
-<span id="cb18-261"><a href="#cb18-261" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-264"><a href="#cb18-264" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb18-265"><a href="#cb18-265" aria-hidden="true" tabindex="-1"></a>dens <span class="ot">&lt;-</span> MASS<span class="sc">::</span><span class="fu">kde2d</span>(hpi<span class="sc">$</span>lifeexp, hpi<span class="sc">$</span>footprint)</span>
-<span id="cb18-266"><a href="#cb18-266" aria-hidden="true" tabindex="-1"></a><span class="fu">persp</span>(dens<span class="sc">$</span>x, dens<span class="sc">$</span>y, dens<span class="sc">$</span>z, <span class="at">theta =</span> <span class="sc">-</span><span class="dv">30</span>, <span class="at">phi =</span> <span class="dv">30</span>,</span>
-<span id="cb18-267"><a href="#cb18-267" aria-hidden="true" tabindex="-1"></a>      <span class="at">xlab =</span> <span class="st">"Life expectancy"</span>, <span class="at">ylab =</span> <span class="st">"Footprint"</span>, <span class="at">zlab =</span> <span class="st">"Density"</span>)</span>
-<span id="cb18-268"><a href="#cb18-268" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-269"><a href="#cb18-269" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-270"><a href="#cb18-270" aria-hidden="true" tabindex="-1"></a><span class="fu">### c. Add to an existing plot</span></span>
-<span id="cb18-271"><a href="#cb18-271" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-272"><a href="#cb18-272" aria-hidden="true" tabindex="-1"></a><span class="fu">#### `points()`</span></span>
-<span id="cb18-273"><a href="#cb18-273" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-274"><a href="#cb18-274" aria-hidden="true" tabindex="-1"></a><span class="in">`points()`</span> adds points to an existing plot; here Brazil in red.</span>
-<span id="cb18-275"><a href="#cb18-275" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-278"><a href="#cb18-278" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb18-279"><a href="#cb18-279" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(hpi<span class="sc">$</span>footprint, hpi<span class="sc">$</span>hpi, <span class="at">col =</span> <span class="st">"gray"</span>,</span>
-<span id="cb18-280"><a href="#cb18-280" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Ecological footprint"</span>, <span class="at">ylab =</span> <span class="st">"HPI"</span>)</span>
-<span id="cb18-281"><a href="#cb18-281" aria-hidden="true" tabindex="-1"></a>br <span class="ot">&lt;-</span> hpi<span class="sc">$</span>country <span class="sc">==</span> <span class="st">"Brazil"</span></span>
-<span id="cb18-282"><a href="#cb18-282" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(hpi<span class="sc">$</span>footprint[br], hpi<span class="sc">$</span>hpi[br], <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">cex =</span> <span class="dv">2</span>)</span>
-<span id="cb18-283"><a href="#cb18-283" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-284"><a href="#cb18-284" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-285"><a href="#cb18-285" aria-hidden="true" tabindex="-1"></a><span class="fu">#### `lines()`</span></span>
-<span id="cb18-286"><a href="#cb18-286" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-287"><a href="#cb18-287" aria-hidden="true" tabindex="-1"></a><span class="in">`lines()`</span> adds connected lines to an existing plot; here a lowess trend.</span>
-<span id="cb18-288"><a href="#cb18-288" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-291"><a href="#cb18-291" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb18-292"><a href="#cb18-292" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(hpi<span class="sc">$</span>footprint, hpi<span class="sc">$</span>hpi, <span class="at">xlab =</span> <span class="st">"Ecological footprint"</span>, <span class="at">ylab =</span> <span class="st">"HPI"</span>)</span>
-<span id="cb18-293"><a href="#cb18-293" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">lowess</span>(hpi<span class="sc">$</span>footprint, hpi<span class="sc">$</span>hpi), <span class="at">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb18-294"><a href="#cb18-294" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-295"><a href="#cb18-295" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-296"><a href="#cb18-296" aria-hidden="true" tabindex="-1"></a><span class="fu">### d. Annotate</span></span>
-<span id="cb18-297"><a href="#cb18-297" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-298"><a href="#cb18-298" aria-hidden="true" tabindex="-1"></a><span class="fu">#### `text()`</span></span>
-<span id="cb18-299"><a href="#cb18-299" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-300"><a href="#cb18-300" aria-hidden="true" tabindex="-1"></a><span class="in">`text()`</span> writes text inside the plot at given coordinates; here two country names.</span>
-<span id="cb18-301"><a href="#cb18-301" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-304"><a href="#cb18-304" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb18-305"><a href="#cb18-305" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(hpi<span class="sc">$</span>satisf, hpi<span class="sc">$</span>lifeexp, <span class="at">xlab =</span> <span class="st">"Life satisfaction"</span>,</span>
-<span id="cb18-306"><a href="#cb18-306" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Life expectancy"</span>)</span>
-<span id="cb18-307"><a href="#cb18-307" aria-hidden="true" tabindex="-1"></a>sel <span class="ot">&lt;-</span> hpi<span class="sc">$</span>country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Brazil"</span>, <span class="st">"Costa Rica"</span>)</span>
-<span id="cb18-308"><a href="#cb18-308" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(hpi<span class="sc">$</span>satisf[sel], hpi<span class="sc">$</span>lifeexp[sel], hpi<span class="sc">$</span>country[sel], <span class="at">pos =</span> <span class="dv">2</span>)</span>
-<span id="cb18-309"><a href="#cb18-309" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-310"><a href="#cb18-310" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-311"><a href="#cb18-311" aria-hidden="true" tabindex="-1"></a><span class="fu">#### `mtext()`</span></span>
-<span id="cb18-312"><a href="#cb18-312" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-313"><a href="#cb18-313" aria-hidden="true" tabindex="-1"></a><span class="in">`mtext()`</span> writes text in the margins of the plot; here the data source.</span>
-<span id="cb18-314"><a href="#cb18-314" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-317"><a href="#cb18-317" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb18-318"><a href="#cb18-318" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(hpi<span class="sc">$</span>satisf, hpi<span class="sc">$</span>hpi, <span class="at">xlab =</span> <span class="st">"Life satisfaction"</span>, <span class="at">ylab =</span> <span class="st">"HPI"</span>)</span>
-<span id="cb18-319"><a href="#cb18-319" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="st">"Source: Happy Planet Index 2026"</span>, <span class="at">side =</span> <span class="dv">1</span>, <span class="at">line =</span> <span class="dv">4</span>, <span class="at">adj =</span> <span class="dv">0</span>)</span>
-<span id="cb18-320"><a href="#cb18-320" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-321"><a href="#cb18-321" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-322"><a href="#cb18-322" aria-hidden="true" tabindex="-1"></a><span class="fu">#### `legend()`</span></span>
-<span id="cb18-323"><a href="#cb18-323" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-324"><a href="#cb18-324" aria-hidden="true" tabindex="-1"></a><span class="in">`legend()`</span> adds a key that explains colours or symbols; here the continents.</span>
-<span id="cb18-325"><a href="#cb18-325" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-328"><a href="#cb18-328" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb18-329"><a href="#cb18-329" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(hpi<span class="sc">$</span>footprint, hpi<span class="sc">$</span>hpi, <span class="at">col =</span> hpi<span class="sc">$</span>continent, <span class="at">pch =</span> <span class="dv">16</span>,</span>
-<span id="cb18-330"><a href="#cb18-330" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Ecological footprint"</span>, <span class="at">ylab =</span> <span class="st">"HPI"</span>)</span>
-<span id="cb18-331"><a href="#cb18-331" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topright"</span>, <span class="at">legend =</span> <span class="fu">levels</span>(hpi<span class="sc">$</span>continent), <span class="at">col =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>, <span class="at">pch =</span> <span class="dv">16</span>,</span>
-<span id="cb18-332"><a href="#cb18-332" aria-hidden="true" tabindex="-1"></a>       <span class="at">cex =</span> <span class="fl">0.7</span>)</span>
-<span id="cb18-333"><a href="#cb18-333" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-334"><a href="#cb18-334" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-335"><a href="#cb18-335" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reference</span></span>
-<span id="cb18-336"><a href="#cb18-336" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-337"><a href="#cb18-337" aria-hidden="true" tabindex="-1"></a>Murrell, Paul. 2019. *R Graphics*. 3rd ed. Chapman &amp; Hall/CRC.</span>
-<span id="cb18-338"><a href="#cb18-338" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-339"><a href="#cb18-339" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-340"><a href="#cb18-340" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-341"><a href="#cb18-341" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-342"><a href="#cb18-342" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-343"><a href="#cb18-343" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-344"><a href="#cb18-344" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-345"><a href="#cb18-345" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-346"><a href="#cb18-346" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-347"><a href="#cb18-347" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-348"><a href="#cb18-348" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-349"><a href="#cb18-349" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-350"><a href="#cb18-350" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-351"><a href="#cb18-351" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-352"><a href="#cb18-352" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-353"><a href="#cb18-353" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-354"><a href="#cb18-354" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-355"><a href="#cb18-355" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-356"><a href="#cb18-356" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-357"><a href="#cb18-357" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-358"><a href="#cb18-358" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-359"><a href="#cb18-359" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-360"><a href="#cb18-360" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-361"><a href="#cb18-361" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-362"><a href="#cb18-362" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-363"><a href="#cb18-363" aria-hidden="true" tabindex="-1"></a></span>
-</code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
-</div></div></div></div></div>
+  </script>
 </div> <!-- /content -->
 
 

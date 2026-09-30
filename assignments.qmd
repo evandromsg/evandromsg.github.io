@@ -40,3 +40,7 @@ In April 2014, Reuters published a graphic on the number of gun deaths in Florid
 ### Assignment 2
 
 [Base R Graphics: Murrell chapter 1 and the Happy Planet Index](assignment02.qmd)
+
+### Assignment 3
+
+[Assignment 3: Anatomy of a Chart](assignment03.qmd)

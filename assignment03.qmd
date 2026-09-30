@@ -1,0 +1,83 @@
+---
+title: "Assignment 3: Anatomy of a Chart"
+subtitle: "EPPS 6356 Data Visualization"
+author: "Evandro M. S. Gomes"
+date: today
+format:
+  html:
+    code-fold: show
+    toc: true
+execute:
+  warning: false
+  message: false
+---
+
+## 1. Document a chart
+
+I reran `murrell01.R` in full. Then I chose the **"Bird 131" scatterplot**.
+
+```{r}
+#| label: fig-bird131
+#| fig-cap: "Bird 131 (Murrell, R Graphics)."
+#| fig-width: 7
+#| fig-height: 5
+
+# Data: travel time (x) and two response measures (y1, y2).
+x  <- c(0.5, 2, 4, 8, 12, 16)
+y1 <- c(1, 1.3, 1.9, 3.4, 3.9, 4.8)
+y2 <- c(4, .8, .5, .45, .4, .3)
+
+# Horizontal axis labels, margins (bottom, left, top, right) and smaller text.
+# The right margin is bigger to fit a second y axis.
+par(las = 1, mar = c(4, 4, 2, 4), cex = .7)
+
+# Opens an empty plot. Nothing is drawn yet.
+plot.new()
+
+# Sets the x and y ranges. Nothing is drawn yet.
+plot.window(range(x), c(0, 6))
+
+# Draws the line for y1.
+lines(x, y1)
+
+# Draws the line for y2.
+lines(x, y2)
+
+# Adds black filled points to y1 (pch = 16), twice the size (cex = 2).
+points(x, y1, pch = 16, cex = 2)
+
+# Adds open points to y2 (pch = 21) with a white inside (bg).
+# Filled and open points show the two series without a legend.
+points(x, y2, pch = 21, bg = "white", cex = 2)
+
+# From here on, axes and labels are gray, so the data stands out.
+par(col = "gray50", fg = "gray50", col.axis = "gray50")
+
+# x axis at the bottom (side 1).
+axis(1, at = seq(0, 16, 4))
+
+# y axis on the left (side 2).
+axis(2, at = seq(0, 6, 2))
+
+# y axis on the right (side 4).
+axis(4, at = seq(0, 6, 2))
+
+# Frame around the plot, open at the top ("u" shape).
+box(bty = "u")
+
+# x axis title, in the bottom margin.
+mtext("Travel Time (s)", side = 1, line = 2, cex = 0.8)
+
+# Left y axis title; las = 0 makes it vertical.
+mtext("Responses per Travel", side = 2, line = 2, las = 0, cex = 0.8)
+
+# Right y axis title, also vertical.
+mtext("Responses per Second", side = 4, line = 2, las = 0, cex = 0.8)
+
+# Label inside the plot, at x = 4 and y = 5.
+text(4, 5, "Bird 131")
+
+# Resets margins and colors to the default.
+par(mar = c(5.1, 4.1, 4.1, 2.1), col = "black", fg = "black",
+    col.axis = "black")
+```

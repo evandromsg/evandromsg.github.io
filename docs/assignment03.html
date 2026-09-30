@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Evandro M. S. Gomes">
+<meta name="dcterms.date" content="2026-09-30">
 
-<title>Assignments – Evandro M. S. Gomes</title>
+<title>Assignment 3: Anatomy of a Chart – Evandro M. S. Gomes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -22,6 +24,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -105,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./assignments.html" aria-current="page"> 
+    <a class="nav-link" href="./assignments.html"> 
 <span class="menu-text">Assignments</span></a>
   </li>  
   <li class="nav-item">
@@ -140,12 +177,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#epps-6356-data-visualization" id="toc-epps-6356-data-visualization" class="nav-link active" data-scroll-target="#epps-6356-data-visualization">EPPS 6356 — Data Visualization</a>
-  <ul class="collapse">
-  <li><a href="#assignment-1" id="toc-assignment-1" class="nav-link" data-scroll-target="#assignment-1">Assignment 1</a></li>
-  <li><a href="#assignment-2" id="toc-assignment-2" class="nav-link" data-scroll-target="#assignment-2">Assignment 2</a></li>
-  <li><a href="#assignment-3" id="toc-assignment-3" class="nav-link" data-scroll-target="#assignment-3">Assignment 3</a></li>
-  </ul></li>
+  <li><a href="#document-a-chart" id="toc-document-a-chart" class="nav-link active" data-scroll-target="#document-a-chart">1. Document a chart</a></li>
   </ul>
 </nav>
     </div>
@@ -154,14 +186,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Assignments</h1>
+<h1 class="title">Assignment 3: Anatomy of a Chart</h1>
+<p class="subtitle lead">EPPS 6356 Data Visualization</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Evandro M. S. Gomes </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 30, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -171,48 +216,86 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="epps-6356-data-visualization" class="level2">
-<h2 class="anchored" data-anchor-id="epps-6356-data-visualization">EPPS 6356 — Data Visualization</h2>
-<section id="assignment-1" class="level3">
-<h3 class="anchored" data-anchor-id="assignment-1">Assignment 1</h3>
-<section id="anscombes-quartet" class="level4">
-<h4 class="anchored" data-anchor-id="anscombes-quartet">1. Anscombe’s Quartet</h4>
-<p>The main idea is the lack of attention that statistical textbooks and software pay to graphics.</p>
-<p>Three red flags:</p>
-<ul>
-<li>It is wrong to assume that numeric calculations are correct and graphs are the “weird” part.</li>
-<li>There is not one single way to analyze the data.</li>
-<li>There is no virtue in just taking into account the calculus.</li>
-</ul>
-<p>Given that:</p>
-<ul>
-<li>Before every calculation, provide the scatterplot.</li>
-<li>Plot the residuals against the adjusted (fitted) values after the regression.</li>
-<li>Outlier — always investigate. Is it an error? Report it.</li>
-<li>If the curves suggest non-linearity, consider transformations.</li>
-</ul>
-</section>
-<section id="fall-color" class="level4">
-<h4 class="anchored" data-anchor-id="fall-color">2. Fall Color</h4>
-<p>The default color was replaced with a custom sky-blue tone (<code>skyblue</code>).</p>
-<p><img src="fall_color.png" class="img-fluid"></p>
-</section>
-<section id="critique-of-a-published-chart" class="level4">
-<h4 class="anchored" data-anchor-id="critique-of-a-published-chart">3. Critique of a Published Chart</h4>
-<p>In April 2014, Reuters published a graphic on the number of gun deaths in Florida, with the “Stand Your Ground” law (2005) as the turning point. However, the Y-axis was inverted, which conveyed a decrease in the numbers when the opposite was true. The numbers were not wrong — the form was. The solution is simple: keep the Y-axis in its conventional position.</p>
-<p><em>Source: <a href="https://psmag.com/news/mislead-charts-stand-ground-laws-gun-deaths-79726/">“How to Mislead With Charts” — Pacific Standard</a></em></p>
-</section>
-</section>
-<section id="assignment-2" class="level3">
-<h3 class="anchored" data-anchor-id="assignment-2">Assignment 2</h3>
-<p><a href="./assignment02.html">Base R Graphics: Murrell chapter 1 and the Happy Planet Index</a></p>
-</section>
-<section id="assignment-3" class="level3">
-<h3 class="anchored" data-anchor-id="assignment-3">Assignment 3</h3>
-<p><a href="./assignment03.html">Assignment 3: Anatomy of a Chart</a></p>
+<section id="document-a-chart" class="level2">
+<h2 class="anchored" data-anchor-id="document-a-chart">1. Document a chart</h2>
+<p>I reran <code>murrell01.R</code> in full. Then I chose the <strong>“Bird 131” scatterplot</strong>.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data: travel time (x) and two response measures (y1, y2).</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">12</span>, <span class="dv">16</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>y1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">1.3</span>, <span class="fl">1.9</span>, <span class="fl">3.4</span>, <span class="fl">3.9</span>, <span class="fl">4.8</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>y2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, .<span class="dv">8</span>, .<span class="dv">5</span>, .<span class="dv">45</span>, .<span class="dv">4</span>, .<span class="dv">3</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Horizontal axis labels, margins (bottom, left, top, right) and smaller text.</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># The right margin is bigger to fit a second y axis.</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">las =</span> <span class="dv">1</span>, <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">4</span>), <span class="at">cex =</span> .<span class="dv">7</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Opens an empty plot. Nothing is drawn yet.</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.new</span>()</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Sets the x and y ranges. Nothing is drawn yet.</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.window</span>(<span class="fu">range</span>(x), <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">6</span>))</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Draws the line for y1.</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, y1)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Draws the line for y2.</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, y2)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Adds black filled points to y1 (pch = 16), twice the size (cex = 2).</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x, y1, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">cex =</span> <span class="dv">2</span>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Adds open points to y2 (pch = 21) with a white inside (bg).</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Filled and open points show the two series without a legend.</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x, y2, <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">bg =</span> <span class="st">"white"</span>, <span class="at">cex =</span> <span class="dv">2</span>)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co"># From here on, axes and labels are gray, so the data stands out.</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">col =</span> <span class="st">"gray50"</span>, <span class="at">fg =</span> <span class="st">"gray50"</span>, <span class="at">col.axis =</span> <span class="st">"gray50"</span>)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co"># x axis at the bottom (side 1).</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">16</span>, <span class="dv">4</span>))</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="co"># y axis on the left (side 2).</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">2</span>, <span class="at">at =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">6</span>, <span class="dv">2</span>))</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="co"># y axis on the right (side 4).</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">4</span>, <span class="at">at =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">6</span>, <span class="dv">2</span>))</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Frame around the plot, open at the top ("u" shape).</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>(<span class="at">bty =</span> <span class="st">"u"</span>)</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="co"># x axis title, in the bottom margin.</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="st">"Travel Time (s)"</span>, <span class="at">side =</span> <span class="dv">1</span>, <span class="at">line =</span> <span class="dv">2</span>, <span class="at">cex =</span> <span class="fl">0.8</span>)</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Left y axis title; las = 0 makes it vertical.</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="st">"Responses per Travel"</span>, <span class="at">side =</span> <span class="dv">2</span>, <span class="at">line =</span> <span class="dv">2</span>, <span class="at">las =</span> <span class="dv">0</span>, <span class="at">cex =</span> <span class="fl">0.8</span>)</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="co"># Right y axis title, also vertical.</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="st">"Responses per Second"</span>, <span class="at">side =</span> <span class="dv">4</span>, <span class="at">line =</span> <span class="dv">2</span>, <span class="at">las =</span> <span class="dv">0</span>, <span class="at">cex =</span> <span class="fl">0.8</span>)</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="co"># Label inside the plot, at x = 4 and y = 5.</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="st">"Bird 131"</span>)</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="co"># Resets margins and colors to the default.</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="fl">5.1</span>, <span class="fl">4.1</span>, <span class="fl">4.1</span>, <span class="fl">2.1</span>), <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">fg =</span> <span class="st">"black"</span>,</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>    <span class="at">col.axis =</span> <span class="st">"black"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-bird131" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-bird131-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="assignment03_files/figure-html/fig-bird131-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bird131-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Bird 131 (Murrell, R Graphics).
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
