@@ -101,3 +101,4 @@ abline(lm4, col = "gray40", lty = 4, lwd = 2)
 
 # Back to one plot per page.
 par(mfrow = c(1, 1))
+
