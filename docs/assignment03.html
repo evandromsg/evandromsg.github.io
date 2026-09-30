@@ -185,6 +185,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#finetune-without-leaving-base-r" id="toc-finetune-without-leaving-base-r" class="nav-link" data-scroll-target="#finetune-without-leaving-base-r">3. Finetune without leaving base R</a></li>
   <li><a href="#now-do-it-in-ggplot2" id="toc-now-do-it-in-ggplot2" class="nav-link" data-scroll-target="#now-do-it-in-ggplot2">4. Now do it in ggplot2</a></li>
+  <li><a href="#prehackathon-team-task" id="toc-prehackathon-team-task" class="nav-link" data-scroll-target="#prehackathon-team-task">5. Pre‑hackathon — team task</a></li>
   </ul>
 </nav>
     </div>
@@ -489,8 +490,83 @@ Figure&nbsp;4
 <p><strong>Became <code>theme()</code> arguments:</strong> the font (<code>family</code> in <code>par()</code> became <code>text = element_text(family = ...)</code>), the title color (<code>col.main</code> became <code>plot.title</code>), the axis label color (<code>col.lab</code> became <code>axis.title</code>) and the axis number color (<code>col.axis</code> became <code>axis.text</code>).</p>
 <p><strong>Became <code>scale_*()</code>:</strong> the tick marks on the axes, which base R chose by itself, became <code>scale_x_continuous(breaks = ...)</code> and <code>scale_y_continuous(breaks = ...)</code>.</p>
 <p><strong>No equivalent:</strong> <code>windowsFonts()</code> and <code>par()</code> have no ggplot2 version. Also, <code>pch = "E"</code> had no direct match: <code>geom_point(shape = "E")</code> ignores the theme font, so I used <code>geom_text()</code>.</p>
+</section>
+<section id="prehackathon-team-task" class="level2">
+<h2 class="anchored" data-anchor-id="prehackathon-team-task">5. Pre‑hackathon — team task</h2>
+<section id="setting-up-libraries-and-downloading-daily-covid-counts-our-world-in-data." class="level4">
+<h4 class="anchored" data-anchor-id="setting-up-libraries-and-downloading-daily-covid-counts-our-world-in-data.">Setting up libraries and downloading Daily COVID counts, Our World in Data.</h4>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Daily COVID counts, Our World in Data.</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"https://raw.githubusercontent.com/owid/covid-19-data/"</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>              <span class="st">"master/public/data/owid-covid-data.csv"</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(url, <span class="st">"owid-covid-data.csv"</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>owidall <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"owid-covid-data.csv"</span>)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop OWID aggregate rows (continents, income groups, World)</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>owidall <span class="ot">&lt;-</span> owidall[<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">"^OWID"</span>, owidall<span class="sc">$</span>iso_code), ]</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset by continent</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>owideu <span class="ot">&lt;-</span> <span class="fu">subset</span>(owidall, continent <span class="sc">==</span> <span class="st">"Europe"</span>)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>owideu<span class="sc">$</span>date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(owideu<span class="sc">$</span>date)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Removing Russia since it seems to be absent in the graph template</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(owideu,</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>                    <span class="sc">!</span><span class="fu">is.na</span>(new_deaths),</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>                    location <span class="sc">!=</span> <span class="st">"Russia"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="calculating-the-quartiles-and-iqr-for-outliers" class="level4">
+<h4 class="anchored" data-anchor-id="calculating-the-quartiles-and-iqr-for-outliers">Calculating the quartiles and IQR for outliers</h4>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>q3 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(df<span class="sc">$</span>new_deaths, <span class="fl">0.75</span>, <span class="at">na.rm=</span>T)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>iqr <span class="ot">&lt;-</span> <span class="fu">IQR</span>(df<span class="sc">$</span>new_deaths)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>sup <span class="ot">&lt;-</span> q3 <span class="sc">+</span> <span class="fl">1.5</span><span class="sc">*</span>iqr</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>outliers <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>new_deaths <span class="sc">&gt;</span> sup, df<span class="sc">$</span>location, <span class="cn">NA</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="plotting" class="level4">
+<h4 class="anchored" data-anchor-id="plotting">Plotting</h4>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df)<span class="sc">+</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>date, <span class="at">y=</span>new_deaths)<span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">col=</span><span class="st">'#E7298A'</span>)<span class="sc">+</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">#geom_text(aes(label=outliers), na.rm=T)+</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">date_breaks =</span> <span class="st">"2 months"</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">date_labels =</span> <span class="st">"%Y-%m"</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    )<span class="sc">+</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Daily COVID deaths in Europe"</span>,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"COVID Deaths in Europe (Daily)"</span>,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Date"</span>)<span class="sc">+</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">#scale_y_continuous(limits=c(0,6600))+</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">90</span>, <span class="at">vjust=</span><span class="fl">0.5</span>, <span class="at">hjust=</span><span class="dv">1</span>),</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="assignment03_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

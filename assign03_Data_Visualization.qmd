@@ -1,0 +1,80 @@
+---
+title: "Assignment 3 - EPPS 6356"
+format: html
+editor: visual
+execute:
+  warning: false
+  message: false
+---
+# Assignment 3 - EPPS 6355 - Data Visualization
+
+## 1. 
+
+## 2. 
+
+## 3.
+
+## 4.
+
+
+## 5. Pre‑hackathon — team task
+
+#### Setting up libraries and downloading Daily COVID counts, Our World in Data. 
+
+```{r}
+library(ggplot2)
+library(tidyverse)
+
+# Daily COVID counts, Our World in Data.
+url <- paste0("https://raw.githubusercontent.com/owid/covid-19-data/",
+              "master/public/data/owid-covid-data.csv")
+download.file(url, "owid-covid-data.csv")
+owidall <- read.csv("owid-covid-data.csv")
+
+# Drop OWID aggregate rows (continents, income groups, World)
+owidall <- owidall[!grepl("^OWID", owidall$iso_code), ]
+
+# Subset by continent
+owideu <- subset(owidall, continent == "Europe")
+owideu$date <- as.Date(owideu$date)
+
+# Removing Russia since it seems to be absent in the graph template
+df <- dplyr::filter(owideu,
+                    !is.na(new_deaths),
+                    location != "Russia")
+```
+
+#### Calculating the quartiles and IQR for outliers
+
+```{r}
+
+q3 <- quantile(df$new_deaths, 0.75, na.rm=T)
+iqr <- IQR(df$new_deaths)
+sup <- q3 + 1.5*iqr
+df$outliers <- ifelse(df$new_deaths > sup, df$location, NA)
+
+```
+
+#### Plotting
+
+```{r}
+
+ggplot(df)+
+  aes(x=date, y=new_deaths)+
+  geom_point(col='#E7298A')+
+  #geom_text(aes(label=outliers), na.rm=T)+
+  scale_x_date(
+    date_breaks = "2 months",
+    date_labels = "%Y-%m"
+    )+
+  labs(title = "Daily COVID deaths in Europe",
+       y = "COVID Deaths in Europe (Daily)",
+       x = "Date")+
+  #scale_y_continuous(limits=c(0,6600))+
+  theme_bw()+
+  theme(
+    axis.text.x = element_text(angle=90, vjust=0.5, hjust=1),
+    panel.grid = element_blank()
+  )
+
+```
