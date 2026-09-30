@@ -80,4 +80,84 @@ text(4, 5, "Bird 131")
 # Resets margins and colors to the default.
 par(mar = c(5.1, 4.1, 4.1, 2.1), col = "black", fg = "black",
     col.axis = "black")
+
 ```
+
+## 2. Anscombe's quartet
+
+I reran `anscombe01.R` in full.
+
+### Regression models
+
+```{r}
+# Fit one linear regression for each of the four sets.
+lm1 <- lm(y1 ~ x1, data = anscombe)
+lm2 <- lm(y2 ~ x2, data = anscombe)
+lm3 <- lm(y3 ~ x3, data = anscombe)
+lm4 <- lm(y4 ~ x4, data = anscombe)
+```
+
+The numbers below come from `summary(lm1)` to `summary(lm4)`.
+
+|                         | Set 1  | Set 2 | Set 3  | Set 4  |
+|-------------------------|--------|-------|--------|--------|
+| Intercept               | 3.0001 | 3.001 | 3.0025 | 3.0017 |
+| Slope                   | 0.5001 | 0.500 | 0.4997 | 0.4999 |
+| R²                      | 0.6665 | 0.6662| 0.6663 | 0.6667 |
+| Residual standard error | 1.237  | 1.237 | 1.236  | 1.236  |
+
+The four models are almost identical: y ≈ 3 + 0.5x, with the same R² and the same error.
+
+### Four ways to draw them
+
+```{r}
+#| label: fig-anscombe
+#| fig-cap: "Anscombe's quartet: same regression line, four different patterns."
+#| fig-width: 8
+#| fig-height: 8
+
+# Four plots on one page: 2 rows, 2 columns.
+par(mfrow = c(2, 2))
+
+# Set 1: blue circles, solid line.
+plot(anscombe$x1, anscombe$y1, col = "blue", pch = 16,
+     xlim = c(3, 19), ylim = c(3, 13), xlab = "x1", ylab = "y1")
+abline(lm1, col = "gray40", lty = 1, lwd = 2)
+
+# Set 2: green triangles, dashed line.
+plot(anscombe$x2, anscombe$y2, col = "forestgreen", pch = 17,
+     xlim = c(3, 19), ylim = c(3, 13), xlab = "x2", ylab = "y2")
+abline(lm2, col = "gray40", lty = 2, lwd = 2)
+
+# Set 3: yellow squares, dotted line.
+plot(anscombe$x3, anscombe$y3, col = "gold", pch = 15,
+     xlim = c(3, 19), ylim = c(3, 13), xlab = "x3", ylab = "y3")
+abline(lm3, col = "gray40", lty = 3, lwd = 2)
+
+# Set 4: red diamonds, dot-dash line.
+plot(anscombe$x4, anscombe$y4, col = "red", pch = 18,
+     xlim = c(3, 19), ylim = c(3, 13), xlab = "x4", ylab = "y4")
+abline(lm4, col = "gray40", lty = 4, lwd = 2)
+
+# Back to one plot per page.
+par(mfrow = c(1, 1))
+```
+
+**Comparing the drawings.** 
+
+Professor's version: 
+- same style in all four plots: orange points and a blue line.
+
+My version:
+- each set has its own color, its own symbol, and its own line type.
+
+**What the summary statistics hide.** 
+The four regressions have the same intercept (3), slope (0.5), R² (0.67) and residual standard error (1.24). The plots show:
+
+- **Set 1:** a normal linear relationship, with points around the line.
+- **Set 2:** a curve. A straight line is the wrong model.
+- **Set 3:** an almost perfect line, but one outlier pulls the regression line up.
+- **Set 4:** almost all points have x = 8. One single point at x = 19 creates the whole line.
+
+Same numbers, four stories. Always plot the data before trusting the statistics.
+

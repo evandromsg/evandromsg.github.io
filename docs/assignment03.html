@@ -178,6 +178,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#document-a-chart" id="toc-document-a-chart" class="nav-link active" data-scroll-target="#document-a-chart">1. Document a chart</a></li>
+  <li><a href="#anscombes-quartet" id="toc-anscombes-quartet" class="nav-link" data-scroll-target="#anscombes-quartet">2. Anscombe’s quartet</a>
+  <ul class="collapse">
+  <li><a href="#regression-models" id="toc-regression-models" class="nav-link" data-scroll-target="#regression-models">Regression models</a></li>
+  <li><a href="#four-ways-to-draw-them" id="toc-four-ways-to-draw-them" class="nav-link" data-scroll-target="#four-ways-to-draw-them">Four ways to draw them</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -294,8 +299,124 @@ Figure&nbsp;1: Bird 131 (Murrell, R Graphics).
 </div>
 </div>
 </div>
+</section>
+<section id="anscombes-quartet" class="level2">
+<h2 class="anchored" data-anchor-id="anscombes-quartet">2. Anscombe’s quartet</h2>
+<p>I reran <code>anscombe01.R</code> in full.</p>
+<section id="regression-models" class="level3">
+<h3 class="anchored" data-anchor-id="regression-models">Regression models</h3>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit one linear regression for each of the four sets.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>lm1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y1 <span class="sc">~</span> x1, <span class="at">data =</span> anscombe)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>lm2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y2 <span class="sc">~</span> x2, <span class="at">data =</span> anscombe)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>lm3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y3 <span class="sc">~</span> x3, <span class="at">data =</span> anscombe)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>lm4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y4 <span class="sc">~</span> x4, <span class="at">data =</span> anscombe)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>The numbers below come from <code>summary(lm1)</code> to <code>summary(lm4)</code>.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Set 1</th>
+<th>Set 2</th>
+<th>Set 3</th>
+<th>Set 4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Intercept</td>
+<td>3.0001</td>
+<td>3.001</td>
+<td>3.0025</td>
+<td>3.0017</td>
+</tr>
+<tr class="even">
+<td>Slope</td>
+<td>0.5001</td>
+<td>0.500</td>
+<td>0.4997</td>
+<td>0.4999</td>
+</tr>
+<tr class="odd">
+<td>R²</td>
+<td>0.6665</td>
+<td>0.6662</td>
+<td>0.6663</td>
+<td>0.6667</td>
+</tr>
+<tr class="even">
+<td>Residual standard error</td>
+<td>1.237</td>
+<td>1.237</td>
+<td>1.236</td>
+<td>1.236</td>
+</tr>
+</tbody>
+</table>
+<p>The four models are almost identical: y ≈ 3 + 0.5x, with the same R² and the same error.</p>
+</section>
+<section id="four-ways-to-draw-them" class="level3">
+<h3 class="anchored" data-anchor-id="four-ways-to-draw-them">Four ways to draw them</h3>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Four plots on one page: 2 rows, 2 columns.</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Set 1: blue circles, solid line.</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(anscombe<span class="sc">$</span>x1, anscombe<span class="sc">$</span>y1, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">pch =</span> <span class="dv">16</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">19</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">13</span>), <span class="at">xlab =</span> <span class="st">"x1"</span>, <span class="at">ylab =</span> <span class="st">"y1"</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(lm1, <span class="at">col =</span> <span class="st">"gray40"</span>, <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Set 2: green triangles, dashed line.</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(anscombe<span class="sc">$</span>x2, anscombe<span class="sc">$</span>y2, <span class="at">col =</span> <span class="st">"forestgreen"</span>, <span class="at">pch =</span> <span class="dv">17</span>,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">19</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">13</span>), <span class="at">xlab =</span> <span class="st">"x2"</span>, <span class="at">ylab =</span> <span class="st">"y2"</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(lm2, <span class="at">col =</span> <span class="st">"gray40"</span>, <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Set 3: yellow squares, dotted line.</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(anscombe<span class="sc">$</span>x3, anscombe<span class="sc">$</span>y3, <span class="at">col =</span> <span class="st">"gold"</span>, <span class="at">pch =</span> <span class="dv">15</span>,</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">19</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">13</span>), <span class="at">xlab =</span> <span class="st">"x3"</span>, <span class="at">ylab =</span> <span class="st">"y3"</span>)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(lm3, <span class="at">col =</span> <span class="st">"gray40"</span>, <span class="at">lty =</span> <span class="dv">3</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Set 4: red diamonds, dot-dash line.</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(anscombe<span class="sc">$</span>x4, anscombe<span class="sc">$</span>y4, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">pch =</span> <span class="dv">18</span>,</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">19</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">13</span>), <span class="at">xlab =</span> <span class="st">"x4"</span>, <span class="at">ylab =</span> <span class="st">"y4"</span>)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(lm4, <span class="at">col =</span> <span class="st">"gray40"</span>, <span class="at">lty =</span> <span class="dv">4</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Back to one plot per page.</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-anscombe" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-anscombe-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="assignment03_files/figure-html/fig-anscombe-1.png" class="img-fluid figure-img" width="768">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anscombe-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Anscombe’s quartet: same regression line, four different patterns.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Comparing the drawings.</strong></p>
+<p>Professor’s version: - same style in all four plots: orange points and a blue line.</p>
+<p>My version: - each set has its own color, its own symbol, and its own line type.</p>
+<p><strong>What the summary statistics hide.</strong> The four regressions have the same intercept (3), slope (0.5), R² (0.67) and residual standard error (1.24). The plots show:</p>
+<ul>
+<li><strong>Set 1:</strong> a normal linear relationship, with points around the line.</li>
+<li><strong>Set 2:</strong> a curve. A straight line is the wrong model.</li>
+<li><strong>Set 3:</strong> an almost perfect line, but one outlier pulls the regression line up.</li>
+<li><strong>Set 4:</strong> almost all points have x = 8. One single point at x = 19 creates the whole line.</li>
+</ul>
+<p>Same numbers, four stories. Always plot the data before trusting the statistics.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
