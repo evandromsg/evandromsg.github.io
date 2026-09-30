@@ -181,3 +181,37 @@ plot(anscombe$x1, anscombe$y1, xlab = "x1", ylab = "y1",
      col.main = "darkblue", col.lab = "gray30", col.axis = "gray30")
 abline(lm1, col = "firebrick", lwd = 2)
 ```
+## 4. Now do it in ggplot2
+
+I reproduced the tuned chart from Part 3 with ggplot2.
+
+```{r}
+#| label: fig-ggplot
+#| fig-width: 7
+#| fig-height: 6
+
+library(tidyverse)
+windowsFonts(Garamond = windowsFont("Garamond"))
+lm1 <- lm(y1 ~ x1, data = anscombe)
+
+ggplot(anscombe, aes(x = x1, y = y1)) +
+  geom_text(label = "E", family = "Garamond", colour = "darkblue", size = 6) +
+  geom_abline(intercept = coef(lm1)[1], slope = coef(lm1)[2],
+              colour = "firebrick", linewidth = 1) +
+  scale_x_continuous(breaks = seq(4, 14, 2)) +
+  scale_y_continuous(breaks = 4:11) +
+  labs(title = "Anscombe's Set 1", x = "x1", y = "y1") +
+  theme_bw() +
+  theme(text = element_text(family = "Garamond"),
+        plot.title = element_text(colour = "darkblue", face = "bold", hjust = 0.5),
+        axis.title = element_text(colour = "gray30"),
+        axis.text = element_text(colour = "gray30"),
+        panel.grid = element_blank())
+```
+
+**Became `theme()` arguments:** the font (`family` in `par()` became `text = element_text(family = ...)`), the title color (`col.main` became `plot.title`), the axis label color (`col.lab` became `axis.title`) and the axis number color (`col.axis` became `axis.text`).
+
+**Became `scale_*()`:** the tick marks on the axes, which base R chose by itself, became `scale_x_continuous(breaks = ...)` and `scale_y_continuous(breaks = ...)`.
+
+**No equivalent:** `windowsFonts()` and `par()` have no ggplot2 version. Also, `pch = "E"` had no direct match: `geom_point(shape = "E")` ignores the theme font, so I used `geom_text()`.
+

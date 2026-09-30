@@ -126,6 +126,13 @@
     "text": "3. Finetune without leaving base R\nI used Anscombe’s Set 1 with a serif font (Garamond), non-default colors, and my own plotting character (the letter “E”).\n\n\nCode\nlm1 &lt;- lm(y1 ~ x1, data = anscombe)\n\nwindowsFonts(Garamond = windowsFont(\"Garamond\"))\npar(mfrow = c(1, 1), family = \"Garamond\")\n\nplot(anscombe$x1, anscombe$y1, xlab = \"x1\", ylab = \"y1\",\n     main = \"Anscombe's Set 1\",\n     col = \"darkblue\", pch = \"E\", cex = 1.3,\n     col.main = \"darkblue\", col.lab = \"gray30\", col.axis = \"gray30\")\nabline(lm1, col = \"firebrick\", lwd = 2)\n\n\n\n\n\n\n\n\nFigure 3"
   },
   {
+    "objectID": "assignment03.html#now-do-it-in-ggplot2",
+    "href": "assignment03.html#now-do-it-in-ggplot2",
+    "title": "Assignment 3: Anatomy of a Chart",
+    "section": "4. Now do it in ggplot2",
+    "text": "4. Now do it in ggplot2\nI reproduced the tuned chart from Part 3 with ggplot2.\n\n\nCode\nlibrary(tidyverse)\nwindowsFonts(Garamond = windowsFont(\"Garamond\"))\nlm1 &lt;- lm(y1 ~ x1, data = anscombe)\n\nggplot(anscombe, aes(x = x1, y = y1)) +\n  geom_text(label = \"E\", family = \"Garamond\", colour = \"darkblue\", size = 6) +\n  geom_abline(intercept = coef(lm1)[1], slope = coef(lm1)[2],\n              colour = \"firebrick\", linewidth = 1) +\n  scale_x_continuous(breaks = seq(4, 14, 2)) +\n  scale_y_continuous(breaks = 4:11) +\n  labs(title = \"Anscombe's Set 1\", x = \"x1\", y = \"y1\") +\n  theme_bw() +\n  theme(text = element_text(family = \"Garamond\"),\n        plot.title = element_text(colour = \"darkblue\", face = \"bold\", hjust = 0.5),\n        axis.title = element_text(colour = \"gray30\"),\n        axis.text = element_text(colour = \"gray30\"),\n        panel.grid = element_blank())\n\n\n\n\n\n\n\n\nFigure 4\n\n\n\n\n\nBecame theme() arguments: the font (family in par() became text = element_text(family = ...)), the title color (col.main became plot.title), the axis label color (col.lab became axis.title) and the axis number color (col.axis became axis.text).\nBecame scale_*(): the tick marks on the axes, which base R chose by itself, became scale_x_continuous(breaks = ...) and scale_y_continuous(breaks = ...).\nNo equivalent: windowsFonts() and par() have no ggplot2 version. Also, pch = \"E\" had no direct match: geom_point(shape = \"E\") ignores the theme font, so I used geom_text()."
+  },
+  {
     "objectID": "cv.html",
     "href": "cv.html",
     "title": "CV",
