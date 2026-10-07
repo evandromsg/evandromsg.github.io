@@ -44,3 +44,8 @@ In April 2014, Reuters published a graphic on the number of gun deaths in Florid
 ### Assignment 3
 
 [Assignment 3: Anatomy of a Chart](assignment03.qmd)
+
+### Class 5 Note
+
+[The Limits of Big Data and the Grammar of Graphics](class05_note.qmd)
+

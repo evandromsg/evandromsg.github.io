@@ -1,0 +1,79 @@
+---
+title: "Class 5 Note: The Limits of Big Data and the Grammar of Graphics"
+subtitle: "EPPS 6356 Data Visualization"
+author: "Evandro M. S. Gomes"
+date: today
+format:
+  html:
+    code-fold: true
+    toc: true
+execute:
+  warning: false
+  message: false
+---
+
+## a. Big data analytics pitfalls: Google Flu Trends
+
+Google Flu Trends (GFT), launched in 2008, estimated flu activity in the United States from the volume of Google searches, one to two weeks ahead of the CDC reports (Ginsberg et al., 2009). It then missed the 2009 H1N1 pandemic and, in 2012–13, predicted more than double the doctor visits the CDC recorded; from August 2011 it overestimated flu in 100 of 108 weeks (Lazer et al., 2014).
+
+What strikes me most is the arrogance of the claim. Lazer et al. call it "big data hubris": the assumption that big data can replace, rather than supplement, traditional data collection and analysis. Google assumed its data were better than the existing model without explaining how or why. That is an argument from authority, and it does not belong in science. In fact, a simple model using lagged CDC data predicted better than GFT.
+
+Two other problems follow. The first is algorithm dynamics: Google kept changing its own search engine, for example by suggesting related searches, and users changed their behaviour, so the process generating the data changed under the model. The second is transparency and replicability: Google never disclosed the search terms or the full method, so nobody outside the company could reproduce or correct the results.
+
+## b. Overfitting and overparameterization
+
+Overfitting happens when a model fits the noise of the data it was trained on: it performs very well on the data it has seen and badly on new data. Overparameterization is the condition that invites it: more parameters, or more candidate predictors, than the data can support. GFT had both. Its engineers screened about 50 million search terms against only 1,152 CDC data points, so some terms matched the flu curve by pure chance, such as searches about high school basketball, which simply shares the winter season with flu (Lazer et al., 2014).
+
+My own field offers a parallel. Research on social disorganization explains crime partly by residential turnover and by the presence of many cultures in one neighbourhood. These studies usually put all Latino immigrants in one box. But Latino is much more than Mexico: Brazil, Costa Rica and Argentina are very different cultures, and what holds for one group does not necessarily hold for another. This is not overfitting in the strict statistical sense, but the failure is the same: a pattern learned from one sample is assumed to hold for people the model has never seen.
+
+The chart below shows overfitting with simulated data. As the polynomial degree increases, the training error keeps falling, while the error on new data falls up to degree 4 and then rises.
+
+```{r}
+#| label: fig-overfitting
+#| fig-cap: "Training error always falls with model complexity; test error does not."
+## Overfitting: training vs. test error as polynomial degree increases
+set.seed(2)
+x <- runif(20, 0, 10)                        # 20 training points
+y <- sin(x) + rnorm(20, sd = 0.4)
+x_new <- runif(100, 0, 10)                   # 100 new points, same process
+y_new <- sin(x_new) + rnorm(100, sd = 0.4)
+
+degree <- 1:10
+train_err <- test_err <- numeric(10)
+for (d in degree) {
+  fit <- lm(y ~ poly(x, d))
+  train_err[d] <- mean((y - predict(fit))^2)
+  test_err[d]  <- mean((y_new - predict(fit, data.frame(x = x_new)))^2)
+}
+
+plot(degree, train_err, type = "b", pch = 16, log = "y",
+     ylim = range(train_err, test_err),
+     xlab = "Polynomial degree", ylab = "Mean squared error (log scale)",
+     main = "Overfitting: training vs. test error")
+lines(degree, test_err, type = "b", pch = 1, lty = 2)
+legend("topleft", legend = c("Training error", "Test error"),
+       pch = c(16, 1), lty = c(1, 2))
+```
+
+## c. Wickham talk summary
+
+In his EMBL keynote, Hadley Wickham presents R and the tidyverse: tidy data (tidyr), data transformation with dplyr and the pipe, ggplot2 and its grammar of graphics, and extensions such as gganimate and ggseg. He rebuilds the Gapminder bubble chart step by step and makes four main points. First, data must be tidy, with one variable per column, before any chart is possible. Second, a plot is made of independent ("orthogonal") components (data, aesthetic mappings, geoms, scales) that can be changed one at a time and combined across packages written by different people. Third, visualization is iterative: he compares his first draft with the original and asks "what's missing?". Fourth, code is the right medium because it is text, readable and reproducible, which is exactly what Google Flu Trends was not.
+
+I would qualify three points. "Code is readable" holds for those who already program; coming from the humanities and social sciences, I found the entry barrier real. I also doubt that one must make something bad in order to make something good: a first version can be good and the next ones better. Finally, the animation is impressive, but it makes precise comparison between years difficult.
+
+## AI use disclosure
+
+<!-- Check the exact format required by the disclosure rule in Assignment 4. -->
+- **Tool:** Claude (Anthropic), Cowork mode. **Model:** claude-opus-5-5.
+- **Use:** explanation of concepts in Portuguese; organization of my own viewing notes on the Wickham lecture; translation of my text from Portuguese to English; R code for the overfitting chart.
+- **Prompts (in Portuguese, summarized):** I asked for a one-paragraph explanation of Google Flu Trends; sent screenshots of the lecture slides with my own notes and asked for explanations; gave my comments on sections a, b and c in Portuguese (the arrogance of big tech and the argument from authority; the "Latino" category in social disorganization research; my three qualifications of the lecture) and asked for an English version; asked for R code for the overfitting chart.
+
+## Sources
+
+Ginsberg, J., Mohebbi, M. H., Patel, R. S., Brammer, L., Smolinski, M. S., & Brilliant, L. (2009). Detecting influenza epidemics using search engine query data. *Nature, 457*, 1012–1014.
+
+Lazer, D., Kennedy, R., King, G., & Vespignani, A. (2014). The parable of Google Flu: Traps in big data analysis. *Science, 343*(6176), 1203–1205.
+
+Wickham, H. (2010). A layered grammar of graphics. *Journal of Computational and Graphical Statistics, 19*(1), 3–28.
+
+Wickham, H. (2019). *Data visualization and data science* [Video]. EMBL Keynote Lecture. European Molecular Biology Laboratory. <https://www.youtube.com/watch?v=9YTNYT1maa4>

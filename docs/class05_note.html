@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Evandro M. S. Gomes">
+<meta name="dcterms.date" content="2026-10-07">
 
-<title>Assignment 3 - EPPS 6356 – Evandro M. S. Gomes</title>
+<title>Class 5 Note: The Limits of Big Data and the Grammar of Graphics – Evandro M. S. Gomes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -175,14 +177,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#assignment-3---epps-6355---data-visualization" id="toc-assignment-3---epps-6355---data-visualization" class="nav-link active" data-scroll-target="#assignment-3---epps-6355---data-visualization">Assignment 3 - EPPS 6355 - Data Visualization</a>
-  <ul class="collapse">
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">1.</a></li>
-  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">2.</a></li>
-  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">3.</a></li>
-  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">4.</a></li>
-  <li><a href="#prehackathon-team-task" id="toc-prehackathon-team-task" class="nav-link" data-scroll-target="#prehackathon-team-task">5. Pre‑hackathon — team task</a></li>
-  </ul></li>
+  <li><a href="#a.-big-data-analytics-pitfalls-google-flu-trends" id="toc-a.-big-data-analytics-pitfalls-google-flu-trends" class="nav-link active" data-scroll-target="#a.-big-data-analytics-pitfalls-google-flu-trends">a. Big data analytics pitfalls: Google Flu Trends</a></li>
+  <li><a href="#b.-overfitting-and-overparameterization" id="toc-b.-overfitting-and-overparameterization" class="nav-link" data-scroll-target="#b.-overfitting-and-overparameterization">b. Overfitting and overparameterization</a></li>
+  <li><a href="#c.-wickham-talk-summary" id="toc-c.-wickham-talk-summary" class="nav-link" data-scroll-target="#c.-wickham-talk-summary">c.&nbsp;Wickham talk summary</a></li>
+  <li><a href="#ai-use-disclosure" id="toc-ai-use-disclosure" class="nav-link" data-scroll-target="#ai-use-disclosure">AI use disclosure</a></li>
+  <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
   </ul>
 </nav>
     </div>
@@ -191,14 +190,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Assignment 3 - EPPS 6356</h1>
+<h1 class="title">Class 5 Note: The Limits of Big Data and the Grammar of Graphics</h1>
+<p class="subtitle lead">EPPS 6356 Data Visualization</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Evandro M. S. Gomes </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 7, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -208,88 +220,79 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="assignment-3---epps-6355---data-visualization" class="level1">
-<h1>Assignment 3 - EPPS 6355 - Data Visualization</h1>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section">1.</h2>
+<section id="a.-big-data-analytics-pitfalls-google-flu-trends" class="level2">
+<h2 class="anchored" data-anchor-id="a.-big-data-analytics-pitfalls-google-flu-trends">a. Big data analytics pitfalls: Google Flu Trends</h2>
+<p>Google Flu Trends (GFT), launched in 2008, estimated flu activity in the United States from the volume of Google searches, one to two weeks ahead of the CDC reports (Ginsberg et al., 2009). It then missed the 2009 H1N1 pandemic and, in 2012–13, predicted more than double the doctor visits the CDC recorded; from August 2011 it overestimated flu in 100 of 108 weeks (Lazer et al., 2014).</p>
+<p>What strikes me most is the arrogance of the claim. Lazer et al.&nbsp;call it “big data hubris”: the assumption that big data can replace, rather than supplement, traditional data collection and analysis. Google assumed its data were better than the existing model without explaining how or why. That is an argument from authority, and it does not belong in science. In fact, a simple model using lagged CDC data predicted better than GFT.</p>
+<p>Two other problems follow. The first is algorithm dynamics: Google kept changing its own search engine, for example by suggesting related searches, and users changed their behaviour, so the process generating the data changed under the model. The second is transparency and replicability: Google never disclosed the search terms or the full method, so nobody outside the company could reproduce or correct the results.</p>
 </section>
-<section id="section-1" class="level2">
-<h2 class="anchored" data-anchor-id="section-1">2.</h2>
-</section>
-<section id="section-2" class="level2">
-<h2 class="anchored" data-anchor-id="section-2">3.</h2>
-</section>
-<section id="section-3" class="level2">
-<h2 class="anchored" data-anchor-id="section-3">4.</h2>
-</section>
-<section id="prehackathon-team-task" class="level2">
-<h2 class="anchored" data-anchor-id="prehackathon-team-task">5. Pre‑hackathon — team task</h2>
-<section id="setting-up-libraries-and-downloading-daily-covid-counts-our-world-in-data." class="level4">
-<h4 class="anchored" data-anchor-id="setting-up-libraries-and-downloading-daily-covid-counts-our-world-in-data.">Setting up libraries and downloading Daily COVID counts, Our World in Data.</h4>
+<section id="b.-overfitting-and-overparameterization" class="level2">
+<h2 class="anchored" data-anchor-id="b.-overfitting-and-overparameterization">b. Overfitting and overparameterization</h2>
+<p>Overfitting happens when a model fits the noise of the data it was trained on: it performs very well on the data it has seen and badly on new data. Overparameterization is the condition that invites it: more parameters, or more candidate predictors, than the data can support. GFT had both. Its engineers screened about 50 million search terms against only 1,152 CDC data points, so some terms matched the flu curve by pure chance, such as searches about high school basketball, which simply shares the winter season with flu (Lazer et al., 2014).</p>
+<p>My own field offers a parallel. Research on social disorganization explains crime partly by residential turnover and by the presence of many cultures in one neighbourhood. These studies usually put all Latino immigrants in one box. But Latino is much more than Mexico: Brazil, Costa Rica and Argentina are very different cultures, and what holds for one group does not necessarily hold for another. This is not overfitting in the strict statistical sense, but the failure is the same: a pattern learned from one sample is assumed to hold for people the model has never seen.</p>
+<p>The chart below shows overfitting with simulated data. As the polynomial degree increases, the training error keeps falling, while the error on new data falls up to degree 4 and then rises.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Daily COVID counts, Our World in Data.</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"https://raw.githubusercontent.com/owid/covid-19-data/"</span>,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>              <span class="st">"master/public/data/owid-covid-data.csv"</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(url, <span class="st">"owid-covid-data.csv"</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>owidall <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"owid-covid-data.csv"</span>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop OWID aggregate rows (continents, income groups, World)</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>owidall <span class="ot">&lt;-</span> owidall[<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">"^OWID"</span>, owidall<span class="sc">$</span>iso_code), ]</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset by continent</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>owideu <span class="ot">&lt;-</span> <span class="fu">subset</span>(owidall, continent <span class="sc">==</span> <span class="st">"Europe"</span>)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>owideu<span class="sc">$</span>date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(owideu<span class="sc">$</span>date)</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Removing Russia since it seems to be absent in the graph template</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(owideu,</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>                    <span class="sc">!</span><span class="fu">is.na</span>(new_deaths),</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>                    location <span class="sc">!=</span> <span class="st">"Russia"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="calculating-the-quartiles-and-iqr-for-outliers" class="level4">
-<h4 class="anchored" data-anchor-id="calculating-the-quartiles-and-iqr-for-outliers">Calculating the quartiles and IQR for outliers</h4>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>q3 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(df<span class="sc">$</span>new_deaths, <span class="fl">0.75</span>, <span class="at">na.rm=</span>T)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>iqr <span class="ot">&lt;-</span> <span class="fu">IQR</span>(df<span class="sc">$</span>new_deaths)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>sup <span class="ot">&lt;-</span> q3 <span class="sc">+</span> <span class="fl">1.5</span><span class="sc">*</span>iqr</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>outliers <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>new_deaths <span class="sc">&gt;</span> sup, df<span class="sc">$</span>location, <span class="cn">NA</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="plotting" class="level4">
-<h4 class="anchored" data-anchor-id="plotting">Plotting</h4>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df)<span class="sc">+</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>date, <span class="at">y=</span>new_deaths)<span class="sc">+</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">col=</span><span class="st">'#E7298A'</span>)<span class="sc">+</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">#geom_text(aes(label=outliers), na.rm=T)+</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">date_breaks =</span> <span class="st">"2 months"</span>,</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">date_labels =</span> <span class="st">"%Y-%m"</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    )<span class="sc">+</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Daily COVID deaths in Europe"</span>,</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"COVID Deaths in Europe (Daily)"</span>,</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Date"</span>)<span class="sc">+</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">#scale_y_continuous(limits=c(0,6600))+</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">90</span>, <span class="at">vjust=</span><span class="fl">0.5</span>, <span class="at">hjust=</span><span class="dv">1</span>),</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Overfitting: training vs. test error as polynomial degree increases</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">20</span>, <span class="dv">0</span>, <span class="dv">10</span>)                        <span class="co"># 20 training points</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">sin</span>(x) <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">20</span>, <span class="at">sd =</span> <span class="fl">0.4</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>x_new <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">100</span>, <span class="dv">0</span>, <span class="dv">10</span>)                   <span class="co"># 100 new points, same process</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>y_new <span class="ot">&lt;-</span> <span class="fu">sin</span>(x_new) <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">sd =</span> <span class="fl">0.4</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>degree <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>train_err <span class="ot">&lt;-</span> test_err <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="dv">10</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (d <span class="cf">in</span> degree) {</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> <span class="fu">poly</span>(x, d))</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  train_err[d] <span class="ot">&lt;-</span> <span class="fu">mean</span>((y <span class="sc">-</span> <span class="fu">predict</span>(fit))<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  test_err[d]  <span class="ot">&lt;-</span> <span class="fu">mean</span>((y_new <span class="sc">-</span> <span class="fu">predict</span>(fit, <span class="fu">data.frame</span>(<span class="at">x =</span> x_new)))<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(degree, train_err, <span class="at">type =</span> <span class="st">"b"</span>, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">log =</span> <span class="st">"y"</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">range</span>(train_err, test_err),</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Polynomial degree"</span>, <span class="at">ylab =</span> <span class="st">"Mean squared error (log scale)"</span>,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Overfitting: training vs. test error"</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(degree, test_err, <span class="at">type =</span> <span class="st">"b"</span>, <span class="at">pch =</span> <span class="dv">1</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Training error"</span>, <span class="st">"Test error"</span>),</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>       <span class="at">pch =</span> <span class="fu">c</span>(<span class="dv">16</span>, <span class="dv">1</span>), <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="assign03_Data_Visualization_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<div id="fig-overfitting" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-overfitting-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="class05_note_files/figure-html/fig-overfitting-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-overfitting-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Training error always falls with model complexity; test error does not.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
+</section>
+<section id="c.-wickham-talk-summary" class="level2">
+<h2 class="anchored" data-anchor-id="c.-wickham-talk-summary">c.&nbsp;Wickham talk summary</h2>
+<p>In his EMBL keynote, Hadley Wickham presents R and the tidyverse: tidy data (tidyr), data transformation with dplyr and the pipe, ggplot2 and its grammar of graphics, and extensions such as gganimate and ggseg. He rebuilds the Gapminder bubble chart step by step and makes four main points. First, data must be tidy, with one variable per column, before any chart is possible. Second, a plot is made of independent (“orthogonal”) components (data, aesthetic mappings, geoms, scales) that can be changed one at a time and combined across packages written by different people. Third, visualization is iterative: he compares his first draft with the original and asks “what’s missing?”. Fourth, code is the right medium because it is text, readable and reproducible, which is exactly what Google Flu Trends was not.</p>
+<p>I would qualify three points. “Code is readable” holds for those who already program; coming from the humanities and social sciences, I found the entry barrier real. I also doubt that one must make something bad in order to make something good: a first version can be good and the next ones better. Finally, the animation is impressive, but it makes precise comparison between years difficult.</p>
+</section>
+<section id="ai-use-disclosure" class="level2">
+<h2 class="anchored" data-anchor-id="ai-use-disclosure">AI use disclosure</h2>
+<!-- Check the exact format required by the disclosure rule in Assignment 4. -->
+<ul>
+<li><strong>Tool:</strong> Claude (Anthropic), Cowork mode. <strong>Model:</strong> claude-opus-5-5.</li>
+<li><strong>Use:</strong> explanation of concepts in Portuguese; organization of my own viewing notes on the Wickham lecture; translation of my text from Portuguese to English; R code for the overfitting chart.</li>
+<li><strong>Prompts (in Portuguese, summarized):</strong> I asked for a one-paragraph explanation of Google Flu Trends; sent screenshots of the lecture slides with my own notes and asked for explanations; gave my comments on sections a, b and c in Portuguese (the arrogance of big tech and the argument from authority; the “Latino” category in social disorganization research; my three qualifications of the lecture) and asked for an English version; asked for R code for the overfitting chart.</li>
+</ul>
+</section>
+<section id="sources" class="level2">
+<h2 class="anchored" data-anchor-id="sources">Sources</h2>
+<p>Ginsberg, J., Mohebbi, M. H., Patel, R. S., Brammer, L., Smolinski, M. S., &amp; Brilliant, L. (2009). Detecting influenza epidemics using search engine query data. <em>Nature, 457</em>, 1012–1014.</p>
+<p>Lazer, D., Kennedy, R., King, G., &amp; Vespignani, A. (2014). The parable of Google Flu: Traps in big data analysis. <em>Science, 343</em>(6176), 1203–1205.</p>
+<p>Wickham, H. (2010). A layered grammar of graphics. <em>Journal of Computational and Graphical Statistics, 19</em>(1), 3–28.</p>
+<p>Wickham, H. (2019). <em>Data visualization and data science</em> [Video]. EMBL Keynote Lecture. European Molecular Biology Laboratory. <a href="https://www.youtube.com/watch?v=9YTNYT1maa4" class="uri">https://www.youtube.com/watch?v=9YTNYT1maa4</a></p>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->
