@@ -1,0 +1,329 @@
+---
+title: "Assignment 5: Base R and ggplot2"
+subtitle: "EPPS 6356 Data Visualization"
+author: "Evandro M. S. Gomes"
+date: today
+format:
+  html:
+    code-fold: show
+    toc: true
+execute:
+  warning: false
+  message: false
+---
+
+## Data
+
+I used `mtcars`, one of R's sample datasets: 32 cars tested by *Motor Trend* magazine in 1974. The charts use fuel consumption (`mpg`), weight (`wt`) and number of cylinders (`cyl`).
+
+## Part 1. Base graphics
+
+### My style
+
+```{r}
+windowsFonts(Garamond = windowsFont("Garamond"))
+
+cores <- c("steelblue", "forestgreen", "firebrick")
+
+fonte <- "Data source: Motor Trend (1974), R dataset mtcars."
+
+meu_estilo <- function() {
+  par(family = "Garamond", las = 1, bty = "l", mar = c(6, 5, 4, 2),
+      col.main = "darkblue", col.lab = "gray30", col.axis = "gray30",
+      cex.main = 1.3, lwd = 2)
+}
+```
+
+### a. Histogram
+
+```{r}
+op <- meu_estilo()
+hist(mtcars$mpg, col = "steelblue", border = "white",
+     main = "Fuel consumption of 32 cars",
+     xlab = "Miles per gallon (mpg)", ylab = "Number of cars")
+mtext(fonte, side = 1, line = 4.5, adj = 0, cex = 0.8, col = "gray40")
+par(op)
+```
+
+### b. Bar chart
+
+#### i. Vertical
+
+```{r}
+op <- meu_estilo()
+contagem <- table(mtcars$cyl)
+barras <- barplot(contagem, col = cores, border = NA, ylim = c(0, 20),
+        main = "Cars by number of cylinders",
+        xlab = "Number of cylinders", ylab = "Number of cars")
+text(barras, contagem, labels = contagem, pos = 3, col = "gray30")
+legend("topleft", legend = c("4 cylinders", "6 cylinders", "8 cylinders"),
+       fill = cores, border = NA, bty = "n")
+mtext(fonte, side = 1, line = 4.5, adj = 0, cex = 0.8, col = "gray40")
+par(op)
+```
+
+#### ii. Horizontal
+
+```{r}
+op <- meu_estilo()
+contagem <- table(mtcars$cyl)
+barras <- barplot(contagem, horiz = TRUE, col = cores, border = NA, xlim = c(0, 20),
+        main = "Cars by number of cylinders",
+        xlab = "Number of cars", ylab = "Number of cylinders")
+text(contagem, barras, labels = contagem, pos = 4, col = "gray30")
+legend("topright", legend = c("4 cylinders", "6 cylinders", "8 cylinders"),
+       fill = cores, border = NA, bty = "n")
+mtext(fonte, side = 1, line = 4.5, adj = 0, cex = 0.8, col = "gray40")
+par(op)
+```
+
+### c. Pie chart
+
+```{r}
+op <- meu_estilo()
+contagem <- table(mtcars$cyl)
+rotulos <- paste0(round(100 * contagem / sum(contagem)), "%")
+pie(contagem, labels = rotulos, col = cores, border = "white",
+    main = "Share of cars by number of cylinders")
+legend("topright", legend = c("4 cylinders", "6 cylinders", "8 cylinders"),
+       fill = cores, border = NA, bty = "n")
+mtext(fonte, side = 1, line = 4.5, adj = 0, cex = 0.8, col = "gray40")
+par(op)
+```
+
+### d. Boxplot
+
+```{r}
+op <- meu_estilo()
+boxplot(mpg ~ cyl, data = mtcars, col = cores, border = "gray30",
+        main = "Fuel consumption by number of cylinders",
+        xlab = "Number of cylinders", ylab = "Miles per gallon (mpg)")
+abline(h = mean(mtcars$mpg), lty = 2, col = "gray40")
+text(3, mean(mtcars$mpg) + 1, "Average of all cars", col = "gray40", cex = 0.8)
+legend("topright", legend = c("4 cylinders", "6 cylinders", "8 cylinders"),
+       fill = cores, border = NA, bty = "n")
+mtext(fonte, side = 1, line = 4.5, adj = 0, cex = 0.8, col = "gray40")
+par(op)
+```
+
+### e. Scatterplot
+
+```{r}
+op <- meu_estilo()
+grupo <- as.factor(mtcars$cyl)
+plot(mtcars$wt, mtcars$mpg, col = cores[grupo], pch = c(16, 17, 15)[grupo], cex = 1.4,
+     main = "Heavier cars use more fuel",
+     xlab = "Weight (1,000 lbs)", ylab = "Miles per gallon (mpg)")
+abline(lm(mpg ~ wt, data = mtcars), lty = 2, col = "gray40")
+legend("topright", legend = c("4 cylinders", "6 cylinders", "8 cylinders"),
+       col = cores, pch = c(16, 17, 15), bty = "n")
+mtext(fonte, side = 1, line = 4.5, adj = 0, cex = 0.8, col = "gray40")
+par(op)
+```
+
+
+## Part 2. ggplot2
+
+### My theme
+
+```{r}
+
+library(tidyverse)
+
+theme_mine <- function() {
+  theme_classic(base_size = 13, base_family = "Garamond") +
+    theme(plot.title = element_text(colour = "darkblue", face = "bold", hjust = 0.5),
+          axis.title = element_text(colour = "gray30"),
+          axis.text = element_text(colour = "gray30"),
+          plot.caption = element_text(colour = "gray40", hjust = 0))
+}
+
+```
+### a. Histogram
+
+```{r}
+ggplot(mtcars, aes(x = mpg)) +
+  geom_histogram(breaks = seq(10, 35, 5), fill = "steelblue", colour = "white") +
+  scale_y_continuous(breaks = seq(0, 12, 2)) +
+  labs(title = "Fuel consumption of 32 cars", x = "Miles per gallon (mpg)",
+       y = "Number of cars", caption = fonte) +
+  theme_mine()
+ 
+```
+### b. Bar chart
+
+#### i. Vertical
+```{r}
+tabela <- as.data.frame(table(cyl = mtcars$cyl))
+
+ggplot(tabela, aes(x = cyl, y = Freq, fill = cyl)) +
+  geom_col() +
+  geom_text(aes(label = Freq), vjust = -0.5, colour = "gray30", family = "Garamond") +
+  scale_fill_manual(values = cores, labels = c("4 cylinders", "6 cylinders", "8 cylinders"), name = NULL) +
+  scale_y_continuous(limits = c(0, 20)) +
+  labs(title = "Cars by number of cylinders", x = "Number of cylinders",
+       y = "Number of cars", caption = fonte) +
+  theme_mine()
+```
+#### ii. Horizontal
+   
+```{r}
+ggplot(tabela, aes(x = cyl, y = Freq, fill = cyl)) +
+  geom_col() +
+  geom_text(aes(label = Freq), hjust = -0.5, colour = "gray30", family = "Garamond") +
+  scale_fill_manual(values = cores, labels = c("4 cylinders", "6 cylinders", "8 cylinders"), name = NULL) +
+  scale_y_continuous(limits = c(0, 20)) +
+  coord_flip() +
+  labs(title = "Cars by number of cylinders", x = "Number of cylinders",
+       y = "Number of cars", caption = fonte) +
+  theme_mine()
+
+```
+   
+### c. Pie chart
+      
+```{r}
+tabela$pct <- paste0(round(100 * tabela$Freq / sum(tabela$Freq)), "%")
+
+ggplot(tabela, aes(x = "", y = Freq, fill = cyl)) +
+  geom_col(width = 1, colour = "white") +
+  geom_text(aes(label = pct), position = position_stack(vjust = 0.5),
+            colour = "white", family = "Garamond", size = 5) +
+  coord_polar(theta = "y") +
+  scale_fill_manual(values = cores, labels = c("4 cylinders", "6 cylinders", "8 cylinders"), name = NULL) +
+  labs(title = "Share of cars by number of cylinders", caption = fonte) +
+  theme_mine() +
+  theme(axis.line = element_blank(), axis.text = element_blank(),
+        axis.ticks = element_blank(), axis.title = element_blank())
+
+```
+### d. Boxplot
+         
+```{r}
+ggplot(mtcars, aes(x = factor(cyl), y = mpg, fill = factor(cyl))) +
+  geom_boxplot(colour = "gray30") +
+  geom_hline(yintercept = mean(mtcars$mpg), linetype = "dashed", colour = "gray40") +
+  annotate("text", x = 3, y = mean(mtcars$mpg) + 1, label = "Average of all cars",
+           colour = "gray40", family = "Garamond", size = 3.5) +
+  scale_fill_manual(values = cores, labels = c("4 cylinders", "6 cylinders", "8 cylinders"), name = NULL) +
+  labs(title = "Fuel consumption by number of cylinders", x = "Number of cylinders",
+       y = "Miles per gallon (mpg)", caption = fonte) +
+  theme_mine()
+```
+### e. Scatterplot
+            
+```{r}
+reta <- lm(mpg ~ wt, data = mtcars)
+nomes <- c("4 cylinders", "6 cylinders", "8 cylinders")
+
+ggplot(mtcars, aes(x = wt, y = mpg, colour = factor(cyl), shape = factor(cyl))) +
+  geom_point(size = 3) +
+  geom_abline(intercept = coef(reta)[1], slope = coef(reta)[2],
+              linetype = "dashed", colour = "gray40") +
+  scale_colour_manual(values = cores, labels = nomes, name = NULL) +
+  scale_shape_manual(values = c(16, 17, 15), labels = nomes, name = NULL) +
+  labs(title = "Heavier cars use more fuel", x = "Weight (1,000 lbs)",
+       y = "Miles per gallon (mpg)", caption = fonte) +
+  theme_mine()
+```
+            
+### Which system was easier?
+
+**Histogram.** Base R was easier. `hist()` chose the bins and the axis marks by itself.
+
+**Bar chart.** ggplot2 was a little easier. The legend came automatically.
+
+**Pie chart.** Base R was much easier. `pie()` draws the chart in one command.
+
+**Boxplot.** Both were about the same. 
+
+**Scatterplot.** ggplot2 was easier. In base R I had to pick the color and symbol of each point and write the legend myself.
+
+## Part 3. Output formats
+
+I exported the scatterplot from Part 1 (base R) and from Part 2 (ggplot2) at 6.5 × 4 inches, in six formats. Raster formats use 300 dpi. For the PDF I used `cairo_pdf()`, the version of `pdf()` that accepts Windows fonts such as Garamond.
+
+```{r}
+#| results: hide
+grafico_base <- function() {
+  op <- meu_estilo()
+  grupo <- as.factor(mtcars$cyl)
+  plot(mtcars$wt, mtcars$mpg, col = cores[grupo], pch = c(16, 17, 15)[grupo], cex = 1.4,
+       main = "Heavier cars use more fuel",
+       xlab = "Weight (1,000 lbs)", ylab = "Miles per gallon (mpg)")
+  abline(lm(mpg ~ wt, data = mtcars), lty = 2, col = "gray40")
+  legend("topright", legend = c("4 cylinders", "6 cylinders", "8 cylinders"),
+         col = cores, pch = c(16, 17, 15), bty = "n")
+  mtext(fonte, side = 1, line = 4.5, adj = 0, cex = 0.8, col = "gray40")
+  par(op)
+}
+
+dir.create("a5_exports", showWarnings = FALSE)
+
+cairo_pdf("a5_exports/base.pdf", width = 6.5, height = 4); grafico_base(); dev.off()
+svg("a5_exports/base.svg", width = 6.5, height = 4); grafico_base(); dev.off()
+png("a5_exports/base.png", width = 6.5, height = 4, units = "in", res = 300); grafico_base(); dev.off()
+jpeg("a5_exports/base.jpg", width = 6.5, height = 4, units = "in", res = 300); grafico_base(); dev.off()
+tiff("a5_exports/base.tiff", width = 6.5, height = 4, units = "in", res = 300); grafico_base(); dev.off()
+bmp("a5_exports/base.bmp", width = 6.5, height = 4, units = "in", res = 300); grafico_base(); dev.off()
+
+reta <- lm(mpg ~ wt, data = mtcars)
+nomes <- c("4 cylinders", "6 cylinders", "8 cylinders")
+
+g <- ggplot(mtcars, aes(x = wt, y = mpg, colour = factor(cyl), shape = factor(cyl))) +
+  geom_point(size = 3) +
+  geom_abline(intercept = coef(reta)[1], slope = coef(reta)[2],
+              linetype = "dashed", colour = "gray40") +
+  scale_colour_manual(values = cores, labels = nomes, name = NULL) +
+  scale_shape_manual(values = c(16, 17, 15), labels = nomes, name = NULL) +
+  labs(title = "Heavier cars use more fuel", x = "Weight (1,000 lbs)",
+       y = "Miles per gallon (mpg)", caption = fonte) +
+  theme_mine()
+
+ggsave("a5_exports/gg.pdf", g, width = 6.5, height = 4, device = cairo_pdf)
+ggsave("a5_exports/gg.svg", g, width = 6.5, height = 4, device = svg)
+ggsave("a5_exports/gg.png", g, width = 6.5, height = 4, dpi = 300)
+ggsave("a5_exports/gg.jpg", g, width = 6.5, height = 4, dpi = 300)
+ggsave("a5_exports/gg.tiff", g, width = 6.5, height = 4, dpi = 300)
+ggsave("a5_exports/gg.bmp", g, width = 6.5, height = 4, dpi = 300)
+```
+
+### Differences among the formats
+
+```{r}
+formato <- c("pdf", "svg", "png", "jpg", "tiff", "bmp")
+
+tabela_formatos <- data.frame(
+  Format = formato,
+  Type = c("Vector", "Vector", "Raster", "Raster", "Raster", "Raster"),
+  Base_KB = round(file.size(paste0("a5_exports/base.", formato)) / 1024, 1),
+  ggplot2_KB = round(file.size(paste0("a5_exports/gg.", formato)) / 1024, 1),
+  Compression = c("Lossless", "Lossless", "Lossless", "Lossy", "Lossless", "Lossless"),
+  Transparency = c("Yes", "Yes", "Yes", "No", "Yes", "No"))
+
+knitr::kable(tabela_formatos)
+```
+
+**Zoom to 400%.** PDF and SVG files - text and lines smooth and sharp. 
+PNG, TIFF and BMP files, the edges of letters, symbols and the dashed line showed small steps (pixels). 
+JPG file, edges blurry.
+TIFF and BMP looked like PNG.
+
+**Which format for which destination:**
+
+- **Journal article:** PDF. It is small, stays sharp at any size and in print, and keeps the fonts. 
+- **Web page:** PNG (or SVG). PNG is small, sharp, lossless and supports transparency; SVG also.
+- **PowerPoint slide:** PNG. It opens in any version of PowerPoint.
+
+## Reflection
+
+Cleveland and McGill tested how accurately people read different visual elements. From most to least accurate:
+
+- position along a common scale (points or bars aligned on the same axis);
+- length (the size of a bar);
+- angle and slope;
+- area;
+- volume and color.
+
+A pie chart forces the reader to compare angles and areas, which rank 3rd and 4th. Bars use length from a common baseline, which ranks 1st and 2nd. This is why pie charts are often criticized.
+My own charts show the problem. In the pie chart, the slices for 4 cylinders (34%) and 8 cylinders (44%) look close in size.

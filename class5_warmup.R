@@ -62,3 +62,6 @@ p6 + facet_wrap(~ continent)
 ## SCALE (colour): a different palette for the same continents.
 p6 + scale_colour_brewer(palette = "Dark2")
 
+
+head(mtcars)
+table(mtcars$cyl)

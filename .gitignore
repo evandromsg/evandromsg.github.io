@@ -6,3 +6,5 @@
 /.quarto/
 **/*.quarto_ipynb
 owid-covid-data.csv
+a5_exports/*.tiff
+a5_exports/*.bmp
