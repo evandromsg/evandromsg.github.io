@@ -1,0 +1,40 @@
+---
+title: "Untitled"
+---
+
+---
+title: "Assignment 6: Shiny"
+subtitle: "EPPS 6356 Data Visualization"
+author: "Evandro M. S. Gomes"
+date: today
+---
+
+## Part 1. Fonts: CSS or bslib?
+
+I would use bslib, because it keeps the whole app consistent and is easier to change.
+
+## Part 2. Three apps with R datasets
+
+### mtcars
+
+Number of cylinders and a maximum weight. The plot and the table show the same cars.Heavier cars use more fuel.
+
+<iframe src="https://evandromsg.shinyapps.io/mtcars/" width="100%" height="800" style="border:none;"></iframe>
+
+### USArrests
+
+Type of crime and how many states to show. Same sorted list of states. Southern states lead in murder arrests. Nevada leads in rape arrests.
+
+<iframe src="https://evandromsg.shinyapps.io/usarrests/" width="100%" height="700" style="border:none;"></iframe>
+
+### uspop
+
+Choose a range of census years. It is up to you using a log scale. The plot and the table use the same years. On the log scale the line is almost straight until 1860, which means the population grew at a nearly constant rate.
+
+<iframe src="https://evandromsg.shinyapps.io/uspop/" width="100%" height="800" style="border:none;"></iframe>
+
+## Part 4. My own app: hate crimes and inequality
+
+This app uses FiveThirtyEight data on hate crimes reported to the FBI (2010-2015 average). The plot and the table use the same filter on how urban each state is. With the District of Columbia, the correlation between inequality and hate crimes is 0.42, but without DC it is close to zero (0.06), so one extreme case creates the pattern.
+
+<iframe src="https://evandromsg.shinyapps.io/meu_app/" width="100%" height="900" style="border:none;"></iframe>
