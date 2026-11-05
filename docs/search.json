@@ -256,14 +256,14 @@
     "href": "assignments.html",
     "title": "Assignments",
     "section": "",
-    "text": "The main idea is the lack of attention that statistical textbooks and software pay to graphics.\nThree red flags:\n\nIt is wrong to assume that numeric calculations are correct and graphs are the “weird” part.\nThere is not one single way to analyze the data.\nThere is no virtue in just taking into account the calculus.\n\nGiven that:\n\nBefore every calculation, provide the scatterplot.\nPlot the residuals against the adjusted (fitted) values after the regression.\nOutlier — always investigate. Is it an error? Report it.\nIf the curves suggest non-linearity, consider transformations.\n\n\n\n\nThe default color was replaced with a custom sky-blue tone (skyblue).\n\n\n\n\nIn April 2014, Reuters published a graphic on the number of gun deaths in Florida, with the “Stand Your Ground” law (2005) as the turning point. However, the Y-axis was inverted, which conveyed a decrease in the numbers when the opposite was true. The numbers were not wrong — the form was. The solution is simple: keep the Y-axis in its conventional position.\nSource: “How to Mislead With Charts” — Pacific Standard\n\n\n\n\nBase R Graphics: Murrell chapter 1 and the Happy Planet Index\n\n\n\nAssignment 3: Anatomy of a Chart\n\n\n\nThe Limits of Big Data and the Grammar of Graphics\n\n\n\nAssignment 5: Base R and ggplot2\n\n\n\nAssignment 6: Shiny"
+    "text": "The main idea is the lack of attention that statistical textbooks and software pay to graphics.\nThree red flags:\n\nIt is wrong to assume that numeric calculations are correct and graphs are the “weird” part.\nThere is not one single way to analyze the data.\nThere is no virtue in just taking into account the calculus.\n\nGiven that:\n\nBefore every calculation, provide the scatterplot.\nPlot the residuals against the adjusted (fitted) values after the regression.\nOutlier — always investigate. Is it an error? Report it.\nIf the curves suggest non-linearity, consider transformations.\n\n\n\n\nThe default color was replaced with a custom sky-blue tone (skyblue).\n\n\n\n\nIn April 2014, Reuters published a graphic on the number of gun deaths in Florida, with the “Stand Your Ground” law (2005) as the turning point. However, the Y-axis was inverted, which conveyed a decrease in the numbers when the opposite was true. The numbers were not wrong — the form was. The solution is simple: keep the Y-axis in its conventional position.\nSource: “How to Mislead With Charts” — Pacific Standard\n\n\n\n\nBase R Graphics: Murrell chapter 1 and the Happy Planet Index\n\n\n\nAssignment 3: Anatomy of a Chart\n\n\n\nThe Limits of Big Data and the Grammar of Graphics\n\n\n\nAssignment 5: Base R and ggplot2\n\n\n\nAssignment 6: Shiny\n\n\n\nAssignment 8: Dashboard"
   },
   {
     "objectID": "assignments.html#epps-6356-data-visualization",
     "href": "assignments.html#epps-6356-data-visualization",
     "title": "Assignments",
     "section": "",
-    "text": "The main idea is the lack of attention that statistical textbooks and software pay to graphics.\nThree red flags:\n\nIt is wrong to assume that numeric calculations are correct and graphs are the “weird” part.\nThere is not one single way to analyze the data.\nThere is no virtue in just taking into account the calculus.\n\nGiven that:\n\nBefore every calculation, provide the scatterplot.\nPlot the residuals against the adjusted (fitted) values after the regression.\nOutlier — always investigate. Is it an error? Report it.\nIf the curves suggest non-linearity, consider transformations.\n\n\n\n\nThe default color was replaced with a custom sky-blue tone (skyblue).\n\n\n\n\nIn April 2014, Reuters published a graphic on the number of gun deaths in Florida, with the “Stand Your Ground” law (2005) as the turning point. However, the Y-axis was inverted, which conveyed a decrease in the numbers when the opposite was true. The numbers were not wrong — the form was. The solution is simple: keep the Y-axis in its conventional position.\nSource: “How to Mislead With Charts” — Pacific Standard\n\n\n\n\nBase R Graphics: Murrell chapter 1 and the Happy Planet Index\n\n\n\nAssignment 3: Anatomy of a Chart\n\n\n\nThe Limits of Big Data and the Grammar of Graphics\n\n\n\nAssignment 5: Base R and ggplot2\n\n\n\nAssignment 6: Shiny"
+    "text": "The main idea is the lack of attention that statistical textbooks and software pay to graphics.\nThree red flags:\n\nIt is wrong to assume that numeric calculations are correct and graphs are the “weird” part.\nThere is not one single way to analyze the data.\nThere is no virtue in just taking into account the calculus.\n\nGiven that:\n\nBefore every calculation, provide the scatterplot.\nPlot the residuals against the adjusted (fitted) values after the regression.\nOutlier — always investigate. Is it an error? Report it.\nIf the curves suggest non-linearity, consider transformations.\n\n\n\n\nThe default color was replaced with a custom sky-blue tone (skyblue).\n\n\n\n\nIn April 2014, Reuters published a graphic on the number of gun deaths in Florida, with the “Stand Your Ground” law (2005) as the turning point. However, the Y-axis was inverted, which conveyed a decrease in the numbers when the opposite was true. The numbers were not wrong — the form was. The solution is simple: keep the Y-axis in its conventional position.\nSource: “How to Mislead With Charts” — Pacific Standard\n\n\n\n\nBase R Graphics: Murrell chapter 1 and the Happy Planet Index\n\n\n\nAssignment 3: Anatomy of a Chart\n\n\n\nThe Limits of Big Data and the Grammar of Graphics\n\n\n\nAssignment 5: Base R and ggplot2\n\n\n\nAssignment 6: Shiny\n\n\n\nAssignment 8: Dashboard"
   },
   {
     "objectID": "cv.html",
@@ -327,5 +327,19 @@
     "title": "Research",
     "section": "Publications",
     "text": "Publications\nComing soon."
+  },
+  {
+    "objectID": "assignment08.html",
+    "href": "assignment08.html",
+    "title": "Assignment 8: Dashboard",
+    "section": "",
+    "text": "Team project with Solbee Kim and John Vasconcelos: VA Budget, FY2008–FY2026.\nThe dashboard asks how the executive and legislative branches differ in funding the U.S. Department of Veterans Affairs. The RQ1 and RQ2 pages run R in the browser (Shinylive), so the first load takes 10–30 seconds."
+  },
+  {
+    "objectID": "assignment08.html#links",
+    "href": "assignment08.html#links",
+    "title": "Assignment 8: Dashboard",
+    "section": "Links",
+    "text": "Links\n\nPublished dashboard: VA Budget Dashboard\nCode repository: SolB-Kim/epps6356-hackathon, VA_Project folder\nProject plan: PLAN.md\nUse of generative AI: IA prompts.md"
   }
 ]

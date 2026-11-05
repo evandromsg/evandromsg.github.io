@@ -6,7 +6,6 @@ title: "Assignments"
 
 ### Assignment 1
 
-
 #### 1. Anscombe's Quartet
 
 The main idea is the lack of attention that statistical textbooks and software pay to graphics.
@@ -30,7 +29,6 @@ The default color was replaced with a custom sky-blue tone (`skyblue`).
 
 ![](fall_color.png)
 
-
 #### 3. Critique of a Published Chart
 
 In April 2014, Reuters published a graphic on the number of gun deaths in Florida, with the "Stand Your Ground" law (2005) as the turning point. However, the Y-axis was inverted, which conveyed a decrease in the numbers when the opposite was true. The numbers were not wrong — the form was. The solution is simple: keep the Y-axis in its conventional position.
@@ -53,9 +51,10 @@ In April 2014, Reuters published a graphic on the number of gun deaths in Florid
 
 [Assignment 5: Base R and ggplot2](assignment05.qmd)
 
-
 ### Assignment 6
 
 [Assignment 6: Shiny](assignment06.qmd)
 
+### Assignment 8
 
+[Assignment 8: Dashboard](assignment08.qmd)

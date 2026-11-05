@@ -1,0 +1,17 @@
+---
+title: "Assignment 8: Dashboard"
+subtitle: "EPPS 6356 Data Visualization"
+author: "Evandro M. S. Gomes"
+date: "2026-11-06"
+---
+
+Team project with Solbee Kim and John Vasconcelos: **VA Budget, FY2008–FY2026**.
+
+The dashboard asks how the executive and legislative branches differ in funding the U.S. Department of Veterans Affairs. The RQ1 and RQ2 pages run R in the browser (Shinylive), so the first load takes 10–30 seconds.
+
+## Links
+
+- **Published dashboard:** [VA Budget Dashboard](va_dashboard.qmd)
+- **Code repository:** [SolB-Kim/epps6356-hackathon, VA_Project folder](https://github.com/SolB-Kim/epps6356-hackathon/tree/main/VA_Project)
+- **Project plan:** [PLAN.md](https://github.com/SolB-Kim/epps6356-hackathon/blob/main/VA_Project/PLAN.md)
+- **Use of generative AI:** [IA prompts.md](https://github.com/SolB-Kim/epps6356-hackathon/blob/main/VA_Project/IA%20prompts.md)
