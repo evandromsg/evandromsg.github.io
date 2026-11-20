@@ -256,14 +256,14 @@
     "href": "assignments.html",
     "title": "Assignments",
     "section": "",
-    "text": "The main idea is the lack of attention that statistical textbooks and software pay to graphics.\nThree red flags:\n\nIt is wrong to assume that numeric calculations are correct and graphs are the “weird” part.\nThere is not one single way to analyze the data.\nThere is no virtue in just taking into account the calculus.\n\nGiven that:\n\nBefore every calculation, provide the scatterplot.\nPlot the residuals against the adjusted (fitted) values after the regression.\nOutlier — always investigate. Is it an error? Report it.\nIf the curves suggest non-linearity, consider transformations.\n\n\n\n\nThe default color was replaced with a custom sky-blue tone (skyblue).\n\n\n\n\nIn April 2014, Reuters published a graphic on the number of gun deaths in Florida, with the “Stand Your Ground” law (2005) as the turning point. However, the Y-axis was inverted, which conveyed a decrease in the numbers when the opposite was true. The numbers were not wrong — the form was. The solution is simple: keep the Y-axis in its conventional position.\nSource: “How to Mislead With Charts” — Pacific Standard\n\n\n\n\nBase R Graphics: Murrell chapter 1 and the Happy Planet Index\n\n\n\nAssignment 3: Anatomy of a Chart\n\n\n\nThe Limits of Big Data and the Grammar of Graphics\n\n\n\nAssignment 5: Base R and ggplot2\n\n\n\nAssignment 6: Shiny\n\n\n\nAssignment 8: Dashboard"
+    "text": "The main idea is the lack of attention that statistical textbooks and software pay to graphics.\nThree red flags:\n\nIt is wrong to assume that numeric calculations are correct and graphs are the “weird” part.\nThere is not one single way to analyze the data.\nThere is no virtue in just taking into account the calculus.\n\nGiven that:\n\nBefore every calculation, provide the scatterplot.\nPlot the residuals against the adjusted (fitted) values after the regression.\nOutlier — always investigate. Is it an error? Report it.\nIf the curves suggest non-linearity, consider transformations.\n\n\n\n\nThe default color was replaced with a custom sky-blue tone (skyblue).\n\n\n\n\nIn April 2014, Reuters published a graphic on the number of gun deaths in Florida, with the “Stand Your Ground” law (2005) as the turning point. However, the Y-axis was inverted, which conveyed a decrease in the numbers when the opposite was true. The numbers were not wrong — the form was. The solution is simple: keep the Y-axis in its conventional position.\nSource: “How to Mislead With Charts” — Pacific Standard\n\n\n\n\nBase R Graphics: Murrell chapter 1 and the Happy Planet Index\n\n\n\nAssignment 3: Anatomy of a Chart\n\n\n\nThe Limits of Big Data and the Grammar of Graphics\n\n\n\nAssignment 5: Base R and ggplot2\n\n\n\nAssignment 6: Shiny\n\n\n\nAssignment 8: Dashboard\n\n\n\nAssignment 9: Mapping Your Data"
   },
   {
     "objectID": "assignments.html#epps-6356-data-visualization",
     "href": "assignments.html#epps-6356-data-visualization",
     "title": "Assignments",
     "section": "",
-    "text": "The main idea is the lack of attention that statistical textbooks and software pay to graphics.\nThree red flags:\n\nIt is wrong to assume that numeric calculations are correct and graphs are the “weird” part.\nThere is not one single way to analyze the data.\nThere is no virtue in just taking into account the calculus.\n\nGiven that:\n\nBefore every calculation, provide the scatterplot.\nPlot the residuals against the adjusted (fitted) values after the regression.\nOutlier — always investigate. Is it an error? Report it.\nIf the curves suggest non-linearity, consider transformations.\n\n\n\n\nThe default color was replaced with a custom sky-blue tone (skyblue).\n\n\n\n\nIn April 2014, Reuters published a graphic on the number of gun deaths in Florida, with the “Stand Your Ground” law (2005) as the turning point. However, the Y-axis was inverted, which conveyed a decrease in the numbers when the opposite was true. The numbers were not wrong — the form was. The solution is simple: keep the Y-axis in its conventional position.\nSource: “How to Mislead With Charts” — Pacific Standard\n\n\n\n\nBase R Graphics: Murrell chapter 1 and the Happy Planet Index\n\n\n\nAssignment 3: Anatomy of a Chart\n\n\n\nThe Limits of Big Data and the Grammar of Graphics\n\n\n\nAssignment 5: Base R and ggplot2\n\n\n\nAssignment 6: Shiny\n\n\n\nAssignment 8: Dashboard"
+    "text": "The main idea is the lack of attention that statistical textbooks and software pay to graphics.\nThree red flags:\n\nIt is wrong to assume that numeric calculations are correct and graphs are the “weird” part.\nThere is not one single way to analyze the data.\nThere is no virtue in just taking into account the calculus.\n\nGiven that:\n\nBefore every calculation, provide the scatterplot.\nPlot the residuals against the adjusted (fitted) values after the regression.\nOutlier — always investigate. Is it an error? Report it.\nIf the curves suggest non-linearity, consider transformations.\n\n\n\n\nThe default color was replaced with a custom sky-blue tone (skyblue).\n\n\n\n\nIn April 2014, Reuters published a graphic on the number of gun deaths in Florida, with the “Stand Your Ground” law (2005) as the turning point. However, the Y-axis was inverted, which conveyed a decrease in the numbers when the opposite was true. The numbers were not wrong — the form was. The solution is simple: keep the Y-axis in its conventional position.\nSource: “How to Mislead With Charts” — Pacific Standard\n\n\n\n\nBase R Graphics: Murrell chapter 1 and the Happy Planet Index\n\n\n\nAssignment 3: Anatomy of a Chart\n\n\n\nThe Limits of Big Data and the Grammar of Graphics\n\n\n\nAssignment 5: Base R and ggplot2\n\n\n\nAssignment 6: Shiny\n\n\n\nAssignment 8: Dashboard\n\n\n\nAssignment 9: Mapping Your Data"
   },
   {
     "objectID": "cv.html",
@@ -341,5 +341,68 @@
     "title": "Assignment 8: Dashboard",
     "section": "Links",
     "text": "Links\n\nPublished dashboard: VA Budget Dashboard\nCode repository: SolB-Kim/epps6356-hackathon, VA_Project folder\nProject plan: PLAN.md\nUse of generative AI: IA prompts.md"
+  },
+  {
+    "objectID": "maps.html",
+    "href": "maps.html",
+    "title": "Assignment 9: Mapping VA Spending by State",
+    "section": "",
+    "text": "TipInteractive version\n\n\n\nThe reactive map is on the Map tab of the team dashboard: VA Budget Dashboard → Map tab\nOur dashboard follows the VA budget at the national level: what the executive branch requests, what Congress enacts, and how mandatory funding has overtaken discretionary funding (RQ2). The budget volumes have no geography, so this assignment adds the Geographic Distribution of VA Expenditures (GDX), the VA’s own annual breakdown of its spending by state. It lets us ask where RQ2 happens: in which states mandatory benefits, mostly disability compensation, have become the larger part of what VA spends."
+  },
+  {
+    "objectID": "maps.html#join-and-check",
+    "href": "maps.html#join-and-check",
+    "title": "Assignment 9: Mapping VA Spending by State",
+    "section": "1. Join and check",
+    "text": "1. Join and check\n\n\nCode\nfy23 &lt;- filter(va_states, fiscal_year == 2023)\n\n# GDX rows with no matching boundary\nanti_join(fy23, st_drop_geometry(states), by = \"state\") |&gt; select(state)\n\n\n# A tibble: 0 × 1\n# ℹ 1 variable: state &lt;chr&gt;\n\n\nCode\n# Boundaries with no GDX row\nanti_join(st_drop_geometry(states), fy23, by = \"state\") |&gt; select(state)\n\n\n                                         state\n1                               American Samoa\n2 Commonwealth of the Northern Mariana Islands\n3                 United States Virgin Islands\n\n\nCode\nva_map &lt;- states |&gt;\n  inner_join(fy23, by = \"state\") |&gt;\n  filter(state != \"Guam\") |&gt;                       # see note below\n  crop_us() |&gt;\n  shift_us()                                       # Albers (EPSG:5070), AK/HI/PR moved\nnrow(va_map)\n\n\n[1] 52\n\n\nOnce the padded names are cleaned, all 53 GDX units find a boundary; the only boundaries without data are American Samoa, the Northern Mariana Islands and the U.S. Virgin Islands, which GDX does not report. Guam is in the data but is left off the static maps, because placing it would stretch the frame across the Pacific; it is on the interactive map."
+  },
+  {
+    "objectID": "maps.html#projection-comparison",
+    "href": "maps.html#projection-comparison",
+    "title": "Assignment 9: Mapping VA Spending by State",
+    "section": "2. Projection comparison",
+    "text": "2. Projection comparison\n\n\nCode\nus &lt;- states |&gt; filter(state %in% fy23$state, state != \"Guam\") |&gt; crop_us() |&gt;\n  mutate(hl = case_when(state == \"Alaska\" ~ \"Alaska\", state == \"Texas\" ~ \"Texas\", .default = \"Other\"))\n\npanel &lt;- function(crs, title) ggplot(st_transform(us, crs)) +\n  geom_sf(aes(fill = hl), colour = \"white\", linewidth = 0.1) +\n  scale_fill_manual(values = c(Alaska = \"#0A3161\", Texas = \"#B31942\", Other = \"grey85\"), guide = \"none\") +\n  labs(title = title) + theme_void(base_size = 11)\n\npanel(4326, \"EPSG:4326 (lon/lat)\") + panel(3857, \"EPSG:3857 (Web Mercator)\") +\n  panel(5070, \"EPSG:5070 (Albers equal-area)\") + plot_layout(nrow = 1)\n\n\n\n\n\n\n\n\n\nIn longitude/latitude and above all in Web Mercator, Alaska (blue) looks larger than Texas (red) several times over and the northern states are stretched, while in Albers equal-area Alaska is about twice the size of Texas, as it really is. We publish Albers (EPSG:5070), with Alaska, Hawaii and Puerto Rico moved next to the lower 48 so the map is not mostly empty ocean."
+  },
+  {
+    "objectID": "maps.html#choropleth",
+    "href": "maps.html#choropleth",
+    "title": "Assignment 9: Mapping VA Spending by State",
+    "section": "3. Choropleth",
+    "text": "3. Choropleth\n\n\nCode\ntm_shape(va_map) +\n  tm_polygons(\n    fill = \"cp_share\",\n    fill.scale = tm_scale_intervals(style = \"quantile\", n = 5, values = \"brewer.blues\",\n                                    value.na = \"grey85\", label.na = \"Not comparable (DC)\",\n                                    label.format = list(digits = 0, suffix = \"%\")),\n    fill.legend = tm_legend(title = \"Compensation & pension\\n(% of state VA spending)\"),\n    col = \"white\", lwd = 0.4) +\n  tm_title(\"In FY2023, disability compensation and pensions were most of VA spending in the South\") +\n  tm_credits(\"Source: VA, Geographic Distribution of VA Expenditures (GDX), FY2023. Boundaries: U.S. Census Bureau (us-atlas).\\nProjection: Albers equal-area (EPSG:5070); Alaska, Hawaii and Puerto Rico moved and resized.\",\n             position = tm_pos_out(\"center\", \"bottom\"), size = 0.7)"
+  },
+  {
+    "objectID": "maps.html#classification-comparison",
+    "href": "maps.html#classification-comparison",
+    "title": "Assignment 9: Mapping VA Spending by State",
+    "section": "4. Classification comparison",
+    "text": "4. Classification comparison\n\n\nCode\nc(\"equal\", \"quantile\", \"jenks\") |&gt;\n  map(\\(s) tm_shape(va_map) +\n        tm_polygons(fill = \"cp_share\",\n                    fill.scale = tm_scale_intervals(style = s, n = 5, values = \"brewer.blues\",\n                                                    value.na = \"grey85\", label.na = \"DC\",\n                                                    label.format = list(digits = 0)),\n                    fill.legend = tm_legend(title = paste0(s, \" (%)\")),\n                    col = \"white\", lwd = 0.2) +\n        tm_layout(legend.outside = TRUE)) |&gt;\n  tmap_arrange(ncol = 3)\n\n\n\n\n\n\n\n\n\nThe shares run from 40% to 63% and are spread fairly evenly, so the three maps agree on the broad pattern: the Southeast and Texas are darkest, the Upper Midwest and New England lightest. Equal intervals keep the darkest class for the states above 59% (Virginia, Georgia, Alabama, the Carolinas, Texas and Oklahoma), so the southern cluster looks smaller and most of the West falls in one middle class. Quantiles put about ten states in each class, so Washington, Tennessee and New Jersey join the top class and differences of two or three points look like full colour steps. Jenks places its breaks at the natural gaps and ends up close to the quantile map. We publish quantiles, because the question is which states depend relatively more on mandatory benefits, and the legend says the classes are quintiles so readers do not take each colour step as an equal amount."
+  },
+  {
+    "objectID": "maps.html#proportional-symbols",
+    "href": "maps.html#proportional-symbols",
+    "title": "Assignment 9: Mapping VA Spending by State",
+    "section": "5. Proportional symbols",
+    "text": "5. Proportional symbols\n\n\nCode\n# one point per state, on its largest polygon (so Michigan's sits on the Lower Peninsula)\npts &lt;- va_map |&gt; filter(!is.na(total_bn)) |&gt;\n  st_cast(\"MULTIPOLYGON\") |&gt; st_cast(\"POLYGON\", warn = FALSE) |&gt;   # one row per polygon\n  mutate(area = as.numeric(st_area(geometry))) |&gt;\n  arrange(desc(area)) |&gt; distinct(state, .keep_all = TRUE) |&gt;   # largest polygon of each state\n  st_point_on_surface()\n\nggplot() +\n  geom_sf(data = va_map, fill = \"grey92\", colour = \"white\", linewidth = 0.2) +\n  geom_sf(data = pts, aes(size = total_bn), shape = 21, fill = \"#B31942\", colour = \"white\", alpha = 0.75) +\n  scale_size_area(max_size = 16, name = \"VA spending, FY2023 ($ billions)\", breaks = c(2, 5, 10, 20)) +\n  labs(title = \"Texas, California and Florida receive the most VA money\",\n       caption = \"Source: VA, GDX FY2023 (excludes Loan Guaranty and DC). Boundaries: U.S. Census Bureau (us-atlas).\\nProjection: Albers equal-area (EPSG:5070); Alaska, Hawaii and Puerto Rico moved and resized.\") +\n  theme_void() +\n  theme(legend.position = \"bottom\", plot.title = element_text(face = \"bold\"),\n        plot.caption = element_text(hjust = 0, size = 8, colour = \"grey30\"))\n\n\n\n\n\n\n\n\n\nTotal spending is a count, so it is drawn with symbols sized by value rather than with colour: a choropleth of totals would mostly show where veterans live, and large, empty states would look important because of their area."
+  },
+  {
+    "objectID": "assignment09.html",
+    "href": "assignment09.html",
+    "title": "Assignment 9: Mapping Your Data",
+    "section": "",
+    "text": "Team project with Solbee Kim and John Vasconcelos: VA Budget, FY2008–FY2026. The maps use the VA’s Geographic Distribution of VA Expenditures (GDX), FY2015–FY2023, to ask in which states mandatory benefits (compensation and pension) make up most of VA spending."
+  },
+  {
+    "objectID": "assignment09.html#links",
+    "href": "assignment09.html#links",
+    "title": "Assignment 9: Mapping Your Data",
+    "section": "Links",
+    "text": "Links\n\nStatic maps (Part B): maps\nDeployed dashboard, Map tab (Part C): VA Budget Dashboard, embedded below\nCode repository: SolB-Kim/epps6356-hackathon, VA_Project folder\nUpdated plan (Part A): PLAN.md, section “Assignment 9”"
+  },
+  {
+    "objectID": "assignment09.html#dashboard",
+    "href": "assignment09.html#dashboard",
+    "title": "Assignment 9: Mapping Your Data",
+    "section": "Dashboard",
+    "text": "Dashboard\nOpen the Map · Where VA spends tab. It runs R in the browser (Shinylive), so the first load can take up to a minute."
   }
 ]

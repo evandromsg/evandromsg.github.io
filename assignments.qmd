@@ -58,3 +58,7 @@ In April 2014, Reuters published a graphic on the number of gun deaths in Florid
 ### Assignment 8
 
 [Assignment 8: Dashboard](assignment08.qmd)
+
+### Assignment 9
+
+[Assignment 9: Mapping Your Data](assignment09.qmd)
